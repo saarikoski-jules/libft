@@ -30,6 +30,7 @@ void	*ft_memmove(void *s1, const void *s2, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strcpy(char *s1, const char *s2);
+char	*ft_strncpy(char *s1, const char *s2, size_t n);
 char	*ft_strdup(const char *s1);
 
 //char *strdup(const char *s);

@@ -109,6 +109,17 @@ void test_strcpy()
 	printf("%s\n", s2);
 }
 
+void test_strncpy()
+{
+	char s1[] = "whazzau";
+	char s2[] = "123456789abcdefghijklmnopqrs";
+
+	
+	printf("%s\n", ft_strncpy(s2, s1, 2));
+	printf("%s\n", s1);
+	printf("%s\n", s2);
+}
+
 void test_strdup()
 {
 	char s1[] = "123456789abcdefghijklmnopqrs";
@@ -121,6 +132,6 @@ void test_strdup()
 
 int main()
 {
-	test_strdup();
+	test_strncpy();
 	return (0);
 }
