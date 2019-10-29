@@ -143,8 +143,28 @@ void test_strrchr()
 	printf("%s\n", ft_strrchr(s1, 't'));
 }
 
+void test_strnstr()
+{
+	char s1[] = "12345a6789abcdefghijklm9nopqrs";
+	char s2[] = "";
+
+	printf("%s\n", ft_strnstr(s1, s2, 20));
+	printf("%s\n", s1);
+	printf("%s\n", s2);
+}
+
+void test_strncmp()
+{
+	char s1[] = "0a";
+	char s2[] = "0ae";
+	int n = 3;
+
+	printf("%d\n", strncmp(s1, s2, n));
+	printf("%d\n", ft_strncmp(s1, s2, n));
+}
+
 int main()
 {
-	test_strrchr();
+	test_strncmp();
 	return (0);
 }
