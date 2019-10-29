@@ -99,23 +99,22 @@ void test_memcmp(char *s1, char *s2, size_t n)
 	}	
 }
 
-void test_strcpy()
+void test_strlcpy()
 {
 	char s1[] = "whazzau";
 	char s2[] = "123456789abcdefghijklmnopqrs";
 
-	printf("%s\n", ft_strcpy(s2, s1));
+	printf("%zu\n", ft_strlcpy(s2, s1, 20));
 	printf("%s\n", s1);
 	printf("%s\n", s2);
 }
 
-void test_strncpy()
+void test_strlcat()
 {
-	char s1[] = "whazzau";
-	char s2[] = "123456789abcdefghijklmnopqrs";
+	char s1[30] = "123456789abcdefghijklmn";
+	char s2[] = "I have no idea what I'm doing";
 
-	
-	printf("%s\n", ft_strncpy(s2, s1, 2));
+	printf("ft_strlcat(s1, s2, 30) = %zu\n", ft_strlcat(s1, s2, 30));
 	printf("%s\n", s1);
 	printf("%s\n", s2);
 }
@@ -130,8 +129,22 @@ void test_strdup()
 	printf("%s\n", s1);
 }
 
+void test_strchr()
+{
+	char s1[] = "123456789abcdefghijklmnopqrs";
+
+	printf("%s\n", ft_strchr(s1, '9'));
+}
+
+void test_strrchr()
+{
+	char s1[] = "123456789abcdefghijklm9nopqrs";
+
+	printf("%s\n", ft_strrchr(s1, 't'));
+}
+
 int main()
 {
-	test_strncpy();
+	test_strrchr();
 	return (0);
 }

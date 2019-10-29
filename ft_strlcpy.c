@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isdigit.c                                       :+:    :+:            */
+/*   ft_strlcpy.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/28 18:22:56 by jsaariko       #+#    #+#                */
-/*   Updated: 2019/10/28 18:22:56 by jsaariko      ########   odam.nl         */
+/*   Created: 2019/10/28 18:24:56 by jsaariko       #+#    #+#                */
+/*   Updated: 2019/10/28 18:24:56 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isdigit(int c)
+size_t ft_strlcpy(char *s1, const char *s2, size_t n)
 {
-	if (c >= '0' && c <= '9')
-	{
-		return (1);
-	}
-	return (0);
+	char	*str;
+
+	str = ft_memmove(s1, s2, n-1);
+	str[n] = '\0';
+	return (ft_strlen(str));
 }
