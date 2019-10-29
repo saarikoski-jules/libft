@@ -182,8 +182,20 @@ void test_memmove2()
 	printf("%s\n", memmove(str2, str2, 4));
 }
 
+void test_calloc()
+{
+	char	*str1;
+	char	*str2;
+
+	str1 = ft_calloc(7, sizeof(int));
+	str2 = calloc(7, sizeof(int));
+
+	printf("%p\n", str1);
+	printf("%p\n", str2);
+}
+
 int main()
 {
-	test_strdup();
+	test_calloc();
 	return (0);
 }
