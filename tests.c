@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#include <stdlib.h>
 #include "libft.h"
 
 void test_isalnum()
@@ -172,8 +173,17 @@ void test_atoi()
 	printf("%d", atoi(s1));
 }
 
+void test_memmove2()
+{
+	char str1[] = "123456789abcdefg";
+	char str2[] = "123456789abcdefg";
+
+	printf("%s\n", ft_memmove(str1, str1, 4));
+	printf("%s\n", memmove(str2, str2, 4));
+}
+
 int main()
 {
-	test_atoi();
+	test_strdup();
 	return (0);
 }

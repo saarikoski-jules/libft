@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 13:35:33 by jsaariko       #+#    #+#                */
-/*   Updated: 2019/10/29 13:35:49 by jsaariko      ########   odam.nl         */
+/*   Updated: 2019/10/29 19:25:45 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,29 @@
 
 void	*ft_memmove(void *s1, const void *s2, size_t n)
 {
-	unsigned char *temp;
+	unsigned char		*s1_copy;
+	const unsigned char	*s2_copy;
+	size_t				i;
 
-	temp = (unsigned char *)malloc(n);
-	memcpy(temp, s2, n);
-	memcpy(s1, temp, n);
-	free(temp);
-	return (s1);
+	s1_copy = s1;
+	s2_copy = s2;
+	if (s1_copy < s2_copy && n != 0)
+	{
+		i = 0;
+		while (i < n && s2_copy[i] != '\0')
+		{
+			s1_copy[i] = s2_copy[i];
+			i++;
+		}
+	}
+	else
+	{
+		i = n;
+		while (i > 0)
+		{
+			s1_copy[i - 1] = s2_copy[i - 1];
+			i--;
+		}
+	}
+	return (s1_copy);
 }
