@@ -163,8 +163,17 @@ void test_strncmp()
 	printf("%d\n", ft_strncmp(s1, s2, n));
 }
 
+void test_atoi()
+{
+	char s1[] = "-2147483648";
+
+	ft_atoi(s1);
+	printf("%d", ft_atoi(s1));
+	printf("%d", atoi(s1));
+}
+
 int main()
 {
-	test_strncmp();
+	test_atoi();
 	return (0);
 }
