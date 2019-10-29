@@ -5,14 +5,14 @@
 /*                                                     +:+                    */
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/28 18:25:28 by jsaariko       #+#    #+#                */
-/*   Updated: 2019/10/28 18:25:28 by jsaariko      ########   odam.nl         */
+/*   Created: 2019/10/29 14:24:47 by jsaariko       #+#    #+#                */
+/*   Updated: 2019/10/29 14:25:05 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_toupper(int c)
+int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
 	{

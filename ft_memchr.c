@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/28 18:23:15 by jsaariko       #+#    #+#                */
-/*   Updated: 2019/10/28 18:23:15 by jsaariko      ########   odam.nl         */
+/*   Created: 2019/10/29 13:31:01 by jsaariko       #+#    #+#                */
+/*   Updated: 2019/10/29 13:31:29 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 	s_cpy = s;
 	ch = (unsigned char)c;
-
-	while(n > 0)
+	while (n > 0)
 	{
 		if (ch == *s_cpy)
 		{
