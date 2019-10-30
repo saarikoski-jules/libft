@@ -187,15 +187,53 @@ void test_calloc()
 	char	*str1;
 	char	*str2;
 
-	str1 = ft_calloc(7, sizeof(int));
-	str2 = calloc(7, sizeof(int));
+	str1 = ft_calloc(7, sizeof(char));
+	str2 = calloc(7, sizeof(char));
+	for(int i = 0; i < 7; i++)
+	{
+		str1[i] = i + '0';
+	}
+	for(int j = 0; j < 7; j++)
+	{
+		str2[j] = j + '0';
+	}
 
-	printf("%p\n", str1);
-	printf("%p\n", str2);
+	printf("%s\n", str1);
+	printf("%s\n", str2);
+}
+
+void	test_substr()
+{
+	char str1[] = "123456789abcdef";
+	char *str2;
+
+	str2 = ft_substr(str1, 6, 20);
+	printf("%s\n", str2);
+}
+
+void test_strjoin()
+{
+	char str1[] = "123456789";
+	char str2[] = "abcdefg";
+	char *str3;
+
+	str3 = ft_strjoin(str1, str2);
+	printf("%s\n", str3);
+}
+
+void test_strtrim()
+{
+	char str1[] = "4441234567894";
+	char str2[] = "49";
+	char *str3;
+
+	str3 = ft_strtrim(str1, str2);
+	printf("%s\n", str3);
+
 }
 
 int main()
 {
-	test_calloc();
+	test_strtrim();
 	return (0);
 }
