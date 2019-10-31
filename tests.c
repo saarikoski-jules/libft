@@ -231,9 +231,28 @@ void test_strtrim()
 	printf("%s\n", str3);
 
 }
+/*
+void test_itoa()
+{
+	ft_itoa(123456789);
+}
+*/
+char function(unsigned int i, char c)
+{
+	printf("%d\n", i);
+	return (c - 32);
+}
+
+void test_strmapi()
+{
+	char str[] = "abcdefghijklmn";
+	char (*f)(unsigned int, char) = &function;
+
+	printf("\n%s\n", ft_strmapi(str, f));
+}
 
 int main()
 {
-	test_strtrim();
+	test_strmapi();
 	return (0);
 }
