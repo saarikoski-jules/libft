@@ -231,12 +231,12 @@ void test_strtrim()
 	printf("%s\n", str3);
 
 }
-/*
+
 void test_itoa()
 {
-	ft_itoa(123456789);
+	printf("%s", ft_itoa(-3248));
 }
-*/
+
 char function(unsigned int i, char c)
 {
 	printf("%d\n", i);
@@ -253,6 +253,6 @@ void test_strmapi()
 
 int main()
 {
-	test_strmapi();
+	test_itoa();
 	return (0);
 }
