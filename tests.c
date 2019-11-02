@@ -187,8 +187,9 @@ void test_calloc()
 	char	*str1;
 	char	*str2;
 
-	str1 = ft_calloc(7, sizeof(char));
-	str2 = calloc(7, sizeof(char));
+	str1 = ft_calloc(0, sizeof(char));
+	str2 = calloc(0, sizeof(char));
+	
 	for(int i = 0; i < 7; i++)
 	{
 		str1[i] = i + '0';
@@ -198,8 +199,8 @@ void test_calloc()
 		str2[j] = j + '0';
 	}
 
-	printf("%s\n", str1);
 	printf("%s\n", str2);
+	printf("%s\n", str1);
 }
 
 void	test_substr()
@@ -251,8 +252,21 @@ void test_strmapi()
 	printf("\n%s\n", ft_strmapi(str, f));
 }
 
+void test_split()
+{
+	int i;
+	char const str[] = "hi this i s a  sentence !  ";
+	char **arr = ft_split(str, ' ');
+	i = 0;
+	while (arr[i])
+	{
+		printf("%s\n", arr[i]);
+		i++;
+	}
+}
+
 int main()
 {
-	test_itoa();
+	test_split();
 	return (0);
 }
