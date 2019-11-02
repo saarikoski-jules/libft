@@ -6,11 +6,10 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 15:15:07 by jsaariko       #+#    #+#                */
-/*   Updated: 2019/11/02 15:18:42 by jsaariko      ########   odam.nl         */
+/*   Updated: 2019/11/02 15:44:15 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h> //REMOVE
 #include "libft.h"
 
 static int	nsearch(const char *s, int c, int i)
@@ -42,7 +41,7 @@ static int	stramt(const char *s, char c)
 	return (amt);
 }
 
-char **ft_split(char const *s, char c)
+char		**ft_split(char const *s, char c)
 {
 	char	**arr;
 	int		i;
@@ -62,7 +61,7 @@ char **ft_split(char const *s, char c)
 		i = nsearch(s, (int)c, i);
 		i++;
 		arr[j] = (char *)malloc((i - k) * sizeof(char));
-		strlcpy(arr[j], &s[k], i - k);
+		ft_strlcpy(arr[j], &s[k], i - k);
 		j++;
 	}
 	arr[j] = NULL;

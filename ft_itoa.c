@@ -6,13 +6,13 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/31 12:38:41 by jsaariko       #+#    #+#                */
-/*   Updated: 2019/10/31 17:02:09 by jsaariko      ########   odam.nl         */
+/*   Updated: 2019/11/02 15:40:54 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		find_length(int n)
+static int	find_length(int n)
 {
 	int l;
 
@@ -33,7 +33,7 @@ char		*ft_itoa(int n)
 	char	*arr;
 
 	l = find_length(n);
-	arr = (char *)malloc((l + 1)*sizeof(char));
+	arr = (char *)malloc((l + 1) * sizeof(char));
 	arr[l] = '\0';
 	if (n == -2147483648)
 	{

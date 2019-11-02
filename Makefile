@@ -4,10 +4,13 @@ FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME):
+$(NAME): clean
 	gcc $(FLAGS) $(SRCS) -o $(NAME)
 
-fclean:
-	rm libft
+clean:
+	rm -rf *.o
+
+fclean: clean
+	rm -rf $(NAME)
 
 re: fclean all
