@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 13:28:19 by jsaariko       #+#    #+#                */
-/*   Updated: 2019/11/03 15:17:10 by jsaariko      ########   odam.nl         */
+/*   Updated: 2019/11/03 21:24:42 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	*ft_memccpy(void *s1, const void *s2, int c, size_t n)
 	while (n > 0)
 	{
 		*s1_copy = *s2_copy;
-			printf("%d, %d\n", *s2_copy, uc);
 		if (*s2_copy == uc)
 		{
 			return (s1_copy++);

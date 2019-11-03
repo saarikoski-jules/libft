@@ -147,9 +147,9 @@ void test_memmove(void)
    char c1[100] = "Geeksfor";
    char c2[100] = "Geeksfor";
 //    ft_memmove(NULL, NULL, strlen(c1)+1); 
-//    memmove(NULL, NULL, strlen(c2)+1); 
-   printf("ft_memmove: %s\nmemmove: %s", c1, c2);
-	ft_memmove(((void *)0), ((void *)0), 5);
+//    memmove(NULL, NULL, strlen(c2)+1);
+	memove(((void *)0), c2, 5);
+	ft_memmove(((void *)0), c2, 5);
 //	memmove(copy_to+5, copy_to, strlen(copy_to)+1);
 //	printf("%s\n", copy_to);
 }
@@ -218,8 +218,8 @@ void test_strlcat()
 	// strlcat(b2, s, 40);
 
 
-	printf("ft_strlcat = %zu\n", ft_strlcat(s1, src, 23));
-	printf("strlcat = %zu\n", strlcat(s2, src, 23));
+	printf("ft_strlcat = %zu\n", ft_strlcat(s1, src, 0));
+	printf("strlcat = %zu\n", strlcat(s2, src, 0));
 	printf("%s\n", s1);
 	printf("%s\n", s2);
 	printf("%s\n", src);
@@ -390,6 +390,6 @@ void test_split()
 
 int main()
 {
-	test_strnstr();
+	test_memmove();
 	return (0);
 }
