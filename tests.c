@@ -4,6 +4,71 @@
 #include <stdlib.h>
 #include "libft.h"
 
+//----------------------------------------------------------------------
+
+// static int	nbr_bits(unsigned int nbr)
+// {
+// 	int				i;
+
+// 	i = 1;
+// 	while ((nbr = nbr >> 1))
+// 		i++;
+// 	return (i);
+// }
+
+// static void	cond1(unsigned int ch, int *i, char *buff)
+// {
+// 	buff[(*i)++] = ((ch >> 18) & 7) | 240;
+// 	buff[(*i)++] = ((ch >> 12) & 63) | 128;
+// }
+
+// static void	putwchart(int wchar, int *len, char *buff)
+// {
+// 	unsigned int	ch;
+// 	int				n;
+// 	int				i;
+
+// 	i = 0;
+// 	ch = (unsigned int)wchar;
+// 	n = nbr_bits(ch);
+// 	if (n > 7 && ((*len += 1)))
+// 	{
+// 		if (n > 11 && ((*len += 1)))
+// 		{
+// 			if (n > 16 && ((*len += 2)))
+// 				cond1(ch, &i, buff);
+// 			else if ((*len += 1))
+// 				buff[i++] = ((ch >> 12) & 15) | 224;
+// 			buff[i++] = (ch & 63) | 128;
+// 		}
+// 		else if ((*len += 1))
+// 			buff[i++] = ((ch >> 6) & 31) | 192;
+// 		buff[i++] = (ch & 63) | 128;
+// 	}
+// 	else if ((*len += 1))
+// 		buff[i++] = ch;
+// }
+
+// void		ft_putchar_f(int c, int fd)
+// {
+// 	int				len;
+// 	char			buff2[10];
+
+// 	len = 0;
+// 	putwchart(c, &len, buff2);
+// 	write(fd, buff2, len);
+// }
+
+//--------------------------------------------------------------------------
+
+void test_putchar()
+{
+
+	//ft_putchar_fd('Ã', 1);
+	char happy[] = { 0xe2, 0x98, 0xba };
+	write(1, happy , 4);
+}
+
 void test_isalnum()
 {
 	int c;
@@ -30,9 +95,11 @@ void test_memcpy(void)
 //	printf("%s\n", copy_from);
 //	printf("%s\n", copy_to);
 
-   char csrc[100] = "Geeksfor"; 
-   ft_memcpy(csrc+5, csrc, strlen(csrc)+1); 
-   printf("%s\n", csrc); 
+   char s1[100] = "Geeksfor"; 
+//   printf("ft_memcpy: %s\n", ft_memcpy(((void *)0), s1, 3));
+
+   char s2[100] = "Geeksfor"; 
+	printf("memcpy: %s\n", memcpy(((void *)0), s1, 3));
 
 //	memcpy(copy_to+5, copy_to, strlen(copy_to)+1);
 //	printf("%s\n", copy_to);
@@ -58,21 +125,31 @@ void test_bzero(void)
 
 void test_memccpy(void)
 {
-	char copy_from[] = "I'm in so much pain right now";
-	char copy_to[] = "123456789ABCDEF";
+	char copy_from[30] = "";
+	char copy_to[30] = "123456789ABCDEF";
+	char copy_to2[30] = "123456789ABCDEF";
 
-	printf("%p\n", ft_memccpy(copy_to, copy_from, 's', 30));
-	printf("%s - %s\n", copy_from, copy_to);
+	char buff1[30] = "abcdefghijklmnopqrstuvwxyz";
+	char buff2[30] = "abcdefghijklmnopqrstuvwxyz";
+	char *src = "string with\200inside !";
+
+	printf("%p\n", ft_memccpy(buff1, src, '\200', 30));
+	printf("%s - %s\n", buff1, src);
+	printf("%p\n", memccpy(buff2, src, '\200', 30));
+	printf("%s - %s\n", buff2, src);
+
 }
 
 void test_memmove(void)
 {
 //	char copy_to[] = "123456789ABCDEF";	
 
-   char csrc[100] = "Geeksfor"; 
-   ft_memmove(csrc+5, csrc, strlen(csrc)+1); 
-   printf("%s\n", csrc);
-
+   char c1[100] = "Geeksfor";
+   char c2[100] = "Geeksfor";
+//    ft_memmove(NULL, NULL, strlen(c1)+1); 
+//    memmove(NULL, NULL, strlen(c2)+1); 
+   printf("ft_memmove: %s\nmemmove: %s", c1, c2);
+	ft_memmove(((void *)0), ((void *)0), 5);
 //	memmove(copy_to+5, copy_to, strlen(copy_to)+1);
 //	printf("%s\n", copy_to);
 }
@@ -105,19 +182,47 @@ void test_strlcpy()
 	char s1[] = "whazzau";
 	char s2[] = "123456789abcdefghijklmnopqrs";
 
-	printf("%zu\n", ft_strlcpy(s2, s1, 20));
-	printf("%s\n", s1);
-	printf("%s\n", s2);
+	char *s3 = "I'm super confident whoa !\0Please help aa\n";
+	char b1[20];
+	char b2[20];
+
+	char *s4 = "BBBB";
+	char b3[20];
+	char b4[20];
+
+	char *s5 = "hello !";
+
+	printf("original size: %zu", strlcpy(b3, "", 2));
+	printf("ft size: %zu", ft_strlcpy(b4, "", 2));
+	printf("%s\n", b3);	
+	printf("%s\n", b4);	
+
+	// printf("%zu\n", ft_strlcpy(b3, s4, 20));
+	// printf("%zu\n", strlcpy(b4, s4, 20));
+	// printf("ft_strlcpy: %s\n", b3);
+	// printf("strlcpy: %s\n", b4);
 }
 
 void test_strlcat()
 {
-	char s1[30] = "123456789abcdefghijklmn";
-	char s2[] = "I have no idea what I'm doing";
+	char s1[100] = "123456789abcdefghijklmn";
+	char s2[100] = "123456789abcdefghijklmn";
+	char src[] = "I have no idea what I'm doing";
 
-	printf("ft_strlcat(s1, s2, 30) = %zu\n", ft_strlcat(s1, s2, 30));
+
+	char *s = "I'm super confident whoa !\0Please help aa\n";
+	char b1[100] = "there is no stars in the sky";
+	char b2[100] = "there is no stars in the sky";
+
+	// ft_strlcat(b1, s, 40);
+	// strlcat(b2, s, 40);
+
+
+	printf("ft_strlcat = %zu\n", ft_strlcat(s1, src, 23));
+	printf("strlcat = %zu\n", strlcat(s2, src, 23));
 	printf("%s\n", s1);
 	printf("%s\n", s2);
+	printf("%s\n", src);
 }
 
 void test_strdup()
@@ -146,19 +251,37 @@ void test_strrchr()
 
 void test_strnstr()
 {
-	char s1[] = "12345a6789abcdefghijklm9nopqrs";
-	char s2[] = "";
+	// char s1[] = "12345a6789abcdefghijklm9nopqrs";
+	// char s2[] = "";
 
-	printf("%s\n", ft_strnstr(s1, s2, 20));
-	printf("%s\n", s1);
-	printf("%s\n", s2);
+	// char s3[] = "MZIRIBMZIRIBMZE123";
+	// char s4[] = "MZIRIBMZE";
+	// size_t max = strlen(s2);
+	// printf("orig: %s\n", strnstr(s4, s3, max));
+	// printf("mine: %s\n", ft_strnstr(s4, s3, max));
+
+	char *s1 = "MZIRIBMZERIBMZE123";
+	char *s2 = "MZIRIBMZE";
+	char *i1 = strnstr(s1, s2, 8);
+	char *i2 = ft_strnstr(s1, s2, 8);
+
+	// char * big = "123456789";
+	// char * little = "9";
+	// char *i1 = strnstr(big, little, 9);
+	// char *i2 = ft_strnstr(big, little, 9);
+
+	printf("%s, %s", i1, i2);
+
+	// printf("%s\n", ft_strnstr(s1, s2, 20));
+	// printf("%s\n", s1);
+	// printf("%s\n", s2);
 }
 
 void test_strncmp()
 {
-	char s1[] = "0a";
-	char s2[] = "0ae";
-	int n = 3;
+	char s1[] = "\x12\xad";
+	char s2[] = "\x12\xff\x65\x12\xbd\xde\x02";
+	int n = 4;
 
 	printf("%d\n", strncmp(s1, s2, n));
 	printf("%d\n", ft_strncmp(s1, s2, n));
@@ -267,6 +390,6 @@ void test_split()
 
 int main()
 {
-	test_split();
+	test_strnstr();
 	return (0);
 }

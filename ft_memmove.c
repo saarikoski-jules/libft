@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 13:35:33 by jsaariko       #+#    #+#                */
-/*   Updated: 2019/10/29 19:25:45 by jsaariko      ########   odam.nl         */
+/*   Updated: 2019/11/03 15:27:36 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	*ft_memmove(void *s1, const void *s2, size_t n)
 
 	s1_copy = s1;
 	s2_copy = s2;
+	if (s1 == NULL && s2 == NULL)
+		return (s1_copy);
 	if (s1_copy < s2_copy && n != 0)
 	{
 		i = 0;

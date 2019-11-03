@@ -23,14 +23,14 @@ $(OBJECTS):
 
 test: $(NAME)
 	@gcc tests.c -L. -lft
-	@echo "Compiling tests"
+	@echo "Tests compiled"
 
 clean:
 	@rm $(OBJECTS)
 	@echo "Cleared object files"
 
 
-fclean: clean
+fclean:
 	rm $(NAME)
 	rm a.out
 

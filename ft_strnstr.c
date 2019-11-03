@@ -6,12 +6,12 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 10:53:19 by jsaariko       #+#    #+#                */
-/*   Updated: 2019/10/29 11:43:16 by jsaariko      ########   odam.nl         */
+/*   Updated: 2019/11/03 21:10:47 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+#include <stdio.h> //REMOVE
 static int	compare(const char *s1, const char *s2)
 {
 	int i;
@@ -42,7 +42,9 @@ char		*ft_strnstr(const char *s1, const char *s2, size_t n)
 	{
 		return ((char *)s1_copy);
 	}
-	while (*s1_copy != '\0' && n > 0)
+	if (n < ft_strlen(s2))
+		return (NULL);
+	while (*s1_copy != '\0' && (n - (ft_strlen(s2) - 1)) > 0)
 	{
 		if (*s1_copy == s2[0])
 		{
@@ -52,6 +54,7 @@ char		*ft_strnstr(const char *s1, const char *s2, size_t n)
 			}
 		}
 		s1_copy++;
+		n--;
 	}
 	return (NULL);
 }
