@@ -1,16 +1,42 @@
-NAME = libft
-SRCS = tests.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_toupper.c ft_tolower.c ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c ft_memcmp.c ft_strlcpy.c ft_strlcat.c ft_strchr.c ft_strrchr.c ft_strnstr.c ft_strncmp.c ft_atoi.c ft_calloc.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_strmapi.c ft_itoa.c ft_split.c
+NAME = libft.a
+SRCS = ft_putchar_fd ft_putstr_fd ft_putendl_fd ft_putnbr_fd ft_isalpha \
+ft_isdigit ft_isalnum ft_isascii ft_isprint ft_toupper ft_tolower ft_strlen \
+ft_memset ft_bzero ft_memcpy ft_memccpy ft_memmove ft_memchr ft_memcmp \
+ft_strlcpy ft_strlcat ft_strchr ft_strrchr ft_strnstr ft_strncmp ft_atoi \
+ft_calloc ft_substr ft_strjoin ft_strtrim ft_strmapi ft_itoa ft_split ft_strdup
+CFILES = $(SRCS:%=%.c)
+OBJECTS = $(SRCS:%=%.o)
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): clean
-	gcc $(FLAGS) $(SRCS) -o $(NAME)
+$(NAME): $(OBJECTS)
+	@ar -rc $(NAME) $(OBJECTS)
+	@rm $(OBJECTS)
+	@ranlib $(NAME)
+	@echo "Library compiled"
+
+
+$(OBJECTS):
+	@gcc $(FLAGS) -c $(CFILES)
+	@echo "Objects compiled"
+
+test: $(NAME)
+	@gcc tests.c -L. -lft
+	@echo "Compiling tests"
 
 clean:
-	rm -rf *.o
+	@rm $(OBJECTS)
+	@echo "Cleared object files"
+
 
 fclean: clean
-	rm -rf $(NAME)
+	rm $(NAME)
+	rm a.out
 
 re: fclean all
+
+
+
+# bonus: $(OBJECTS) $(BONUS_OFILES)
+#     ar rc $(NAME) $(OBJECTS) $(BONUS_OFILES)
