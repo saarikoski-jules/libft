@@ -370,7 +370,7 @@ void test_strjoin()
 
 	//Pritect malloc
 
-	str3 = ft_strjoin(str1, str2);
+	str3 = ft_strjoin(NULL, NULL);
 	printf("%s\n", str3);
 }
 
@@ -400,7 +400,7 @@ void test_strtrim()
 
 void test_itoa()
 {
-	printf("%s", ft_itoa(-3248));
+	printf("%s", ft_itoa(0));
 }
 
 char function(unsigned int i, char c)
@@ -448,7 +448,13 @@ int main()
 	// char *str2 = ft_substr("abababa", 0, 1);
 	// printf("%s\n", str2);
 
-	test_split();
+	test_strjoin();
 	// test_substr();
 	return (0);
 }
+
+//proteect malloc in substr, strtrim and itoa
+//protect split in split
+//itoa allocates the wrong size
+
+//segfault strnstr and memmove with single null param
