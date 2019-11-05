@@ -125,18 +125,25 @@ void test_bzero(void)
 
 void test_memccpy(void)
 {
-	char copy_from[30] = "";
-	char copy_to[30] = "123456789ABCDEF";
-	char copy_to2[30] = "123456789ABCDEF";
+	// char copy_from[30] = "";
+	// char copy_to[30] = "123456789ABCDEF";
+	// char copy_to2[30] = "123456789ABCDEF";
 
-	char buff1[30] = "abcdefghijklmnopqrstuvwxyz";
-	char buff2[30] = "abcdefghijklmnopqrstuvwxyz";
-	char *src = "string with\200inside !";
+	// char buff1[30] = "abcdefghijklmnopqrstuvwxyz";
+	// char buff2[30] = "abcdefghijklmnopqrstuvwxyz";
+	// char *src = "string with\200inside !";
 
-	printf("%p\n", ft_memccpy(buff1, src, '\200', 30));
-	printf("%s - %s\n", buff1, src);
-	printf("%p\n", memccpy(buff2, src, '\200', 30));
-	printf("%s - %s\n", buff2, src);
+	// printf("%p\n", ft_memccpy(buff1, src, '\200', 30));
+	// printf("%s - %s\n", buff1, src);
+	// printf("%p\n", memccpy(buff2, src, '\200', 30));
+	// printf("%s - %s\n", buff2, src);
+
+	char src[] = "m !";
+	char buff1[22];
+	char buff2[22];
+
+	printf("memccpy: %s\n", memccpy(buff1, src, 'm', 22));
+	printf("ft_memccpy: %s", ft_memccpy(buff2, src, 'm', 22));
 
 }
 
@@ -144,12 +151,14 @@ void test_memmove(void)
 {
 //	char copy_to[] = "123456789ABCDEF";	
 
-   char c1[100] = "Geeksfor";
-   char c2[100] = "Geeksfor";
+   char c1[100] = "im a string";
+   char c2[100];
+   char b[100];
 //    ft_memmove(NULL, NULL, strlen(c1)+1); 
 //    memmove(NULL, NULL, strlen(c2)+1);
-	memove(((void *)0), c2, 5);
-	ft_memmove(((void *)0), c2, 5);
+	// memmove(NULL, b, 5);
+// printf("%s\n", c2);
+	ft_memmove(NULL, NULL, 5);
 //	memmove(copy_to+5, copy_to, strlen(copy_to)+1);
 //	printf("%s\n", copy_to);
 }
@@ -192,10 +201,16 @@ void test_strlcpy()
 
 	char *s5 = "hello !";
 
-	printf("original size: %zu", strlcpy(b3, "", 2));
-	printf("ft size: %zu", ft_strlcpy(b4, "", 2));
-	printf("%s\n", b3);	
-	printf("%s\n", b4);	
+	// printf("original size: %zu", strlcpy(b3, "", 2));
+	// printf("ft size: %zu", ft_strlcpy(b4, "", 2));
+	// printf("%s\n", b3);	
+	// printf("%s\n", b4);	
+
+	printf("size of orig: %zu\n", strlcpy(b3, s5, 20));
+	printf("size of mine: %zu\n", ft_strlcpy(b4, s5, 20));
+	printf("stored in orig: %s\n", b3);	
+	printf("stored in mine: %s\n", b4);
+
 
 	// printf("%zu\n", ft_strlcpy(b3, s4, 20));
 	// printf("%zu\n", strlcpy(b4, s4, 20));
@@ -227,12 +242,24 @@ void test_strlcat()
 
 void test_strdup()
 {
-	char s1[] = "123456789abcdefghijklmnopqrs";
+	char s1[] = "whazzup";
 	char *s2;
-
+	char *s3;
 	s2 = strdup(s1);
-	printf("%s\n", s2);
-	printf("%s\n", s1);
+	s3 = ft_strdup(s1);
+	printf("original result: %s\n", s2);
+	printf("my result: %s\n", s3);
+	//printf("%s\n", s1);
+
+	//protect malloc return
+	// char *str;
+	// char *tmp = "I malloc so I am.";
+
+	// str = ft_strdup(tmp);
+	//empty string
+	//allocate the right size
+	//add \0 to the end
+
 }
 
 void test_strchr()
@@ -331,7 +358,7 @@ void	test_substr()
 	char str1[] = "123456789abcdef";
 	char *str2;
 
-	str2 = ft_substr(str1, 6, 20);
+	str2 = ft_substr("abababa", 0, 1);
 	printf("%s\n", str2);
 }
 
@@ -341,18 +368,33 @@ void test_strjoin()
 	char str2[] = "abcdefg";
 	char *str3;
 
+	//Pritect malloc
+
 	str3 = ft_strjoin(str1, str2);
 	printf("%s\n", str3);
 }
 
 void test_strtrim()
 {
-	char str1[] = "4441234567894";
-	char str2[] = "49";
-	char *str3;
+	// char str1[] = "labg";
+	// char str2[] = "";
+	// char *str3;
 
-	str3 = ft_strtrim(str1, str2);
-	printf("%s\n", str3);
+	//empty input, full blank input etc
+	//protect malloc
+
+	// str3 = ft_strtrim(str1, str2);
+	// printf("%s\n", str3);
+
+	// char *s3 = "";
+	// char *s4 = "";
+	// char *ret = ft_strtrim("", str2);
+
+	char *s1 = "   \t  \n\n \t\t  \n\n\nHello \t  Please\n Trim me !\n   \n \n \t\t\n  ";
+
+	char *ret = ft_strtrim(s1, " \n\t");
+
+	printf("%s\n", ret);
 
 }
 
@@ -372,24 +414,41 @@ void test_strmapi()
 	char str[] = "abcdefghijklmn";
 	char (*f)(unsigned int, char) = &function;
 
-	printf("\n%s\n", ft_strmapi(str, f));
+	printf("%s", ft_strmapi("0", f));
 }
 
 void test_split()
 {
 	int i;
-	char const str[] = "hi this i s a  sentence !  ";
-	char **arr = ft_split(str, ' ');
+	// char const str[] = "";
+	// char **arr = ft_split(NULL, 'a');
+
+	char *s = "      split       this for   me  !       ";
+
+	char **result = ft_split(s, ' ');
+
 	i = 0;
-	while (arr[i])
+	while (result[i])
 	{
-		printf("%s\n", arr[i]);
+		printf("string %d: %s\n", i, result[i]);
+		// printf("pointer %p\n", arr[i]);
 		i++;
 	}
 }
 
 int main()
 {
-	test_memmove();
+
+
+	// printf("%s\n", ft_substr("bbbbaaabababa", 4, (7 - 4)));
+	// printf("%s\n", ft_substr("bbbbaaabababa", 8, (9 - 8)));
+	// printf("%s\n", ft_substr("bbbbaaabababa", 10, (11 - 10)));
+	// printf("%s\n\n\n", ft_substr("bbbbaaabababa", 12, (13 - 12)));
+
+	// char *str2 = ft_substr("abababa", 0, 1);
+	// printf("%s\n", str2);
+
+	test_split();
+	// test_substr();
 	return (0);
 }

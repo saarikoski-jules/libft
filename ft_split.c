@@ -6,26 +6,37 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 15:15:07 by jsaariko       #+#    #+#                */
-/*   Updated: 2019/11/02 15:44:15 by jsaariko      ########   odam.nl         */
+/*   Updated: 2019/11/05 15:31:30 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	nsearch(const char *s, int c, int i)
+static int find_start(char const *s, char c, int end)
 {
-	while (s[i] != '\0')
+	int i;
+
+	i = end;
+	while (s[i] == c && s[i] != '\0')
 	{
-		if (s[i] == c && (s[i + 1] != c && s[i + 1] != '\0'))
-			return (i);
 		i++;
 	}
-	if (c == 0)
-		return (i);
 	return (i);
 }
 
-static int	stramt(const char *s, char c)
+static int find_end(char const *s, char c, int start)
+{
+	int i;
+
+	i = start;
+	while(s[i] != c && s[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
+
+int str_amt(char const *s, char c)
 {
 	int i;
 	int amt;
@@ -34,36 +45,37 @@ static int	stramt(const char *s, char c)
 	amt = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] == c && s[i + 1] != c && c && s[i + 1])
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
+		{
 			amt++;
+		}
 		i++;
 	}
 	return (amt);
 }
 
-char		**ft_split(char const *s, char c)
+char **ft_split(char const *s, char c)
 {
-	char	**arr;
-	int		i;
-	int		j;
-	int		k;
-	int		amt;
+	char **arr;
+	int start;
+	int end;
+	int i;
+	int amt;
 
-	j = 0;
-	i = 0;
-	arr = (char **)malloc(((int)ft_strlen(s) - 1) * sizeof(char *));
-	if (arr == NULL)
+	if (!s)
 		return (NULL);
-	amt = stramt(s, c);
-	while (j <= amt)
+	i = 0;
+	amt = str_amt(s, c);
+	arr = (char **)malloc(((amt + 1) * sizeof(char *)));
+	start = 0;
+	end = 0;
+	while (i < amt)
 	{
-		k = i;
-		i = nsearch(s, (int)c, i);
+		start = find_start(s, c, end);
+		end = find_end(s, c, start);
+		arr[i] = ft_substr(s, start, (end - start));
 		i++;
-		arr[j] = (char *)malloc((i - k) * sizeof(char));
-		ft_strlcpy(arr[j], &s[k], i - k);
-		j++;
 	}
-	arr[j] = NULL;
+	arr[i] = NULL;
 	return (arr);
 }

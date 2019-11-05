@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/31 13:41:01 by jsaariko       #+#    #+#                */
-/*   Updated: 2019/11/02 15:43:16 by jsaariko      ########   odam.nl         */
+/*   Updated: 2019/11/04 11:32:53 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	i;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	new = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (new == NULL)
 		return (NULL);
