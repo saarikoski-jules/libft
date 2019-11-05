@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 15:15:07 by jsaariko       #+#    #+#                */
-/*   Updated: 2019/11/05 15:31:30 by jsaariko      ########   odam.nl         */
+/*   Updated: 2019/11/05 17:52:13 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ char **ft_split(char const *s, char c)
 	i = 0;
 	amt = str_amt(s, c);
 	arr = (char **)malloc(((amt + 1) * sizeof(char *)));
+	if (arr == NULL)
+		return (NULL);
 	start = 0;
 	end = 0;
 	while (i < amt)

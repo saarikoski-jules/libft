@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 10:47:15 by jsaariko       #+#    #+#                */
-/*   Updated: 2019/11/05 15:41:27 by jsaariko      ########   odam.nl         */
+/*   Updated: 2019/11/05 17:48:41 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	new = (char *)malloc(len * sizeof(char) + 1);
+	if (new == NULL)
+		return (NULL);
 	ptr = new;
 	i = 0;
 	while (i < len && s[start + i] != '\0')

@@ -448,7 +448,7 @@ int main()
 	// char *str2 = ft_substr("abababa", 0, 1);
 	// printf("%s\n", str2);
 
-	test_strjoin();
+	test_itoa();
 	// test_substr();
 	return (0);
 }

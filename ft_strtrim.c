@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 13:39:37 by jsaariko       #+#    #+#                */
-/*   Updated: 2019/11/05 11:24:21 by jsaariko      ########   odam.nl         */
+/*   Updated: 2019/11/05 17:51:21 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (k - j > 0)
 	{
 		trimmed = (char *)malloc((k - j + 1) * sizeof(char));
+			if (trimmed == NULL)
+				return (NULL);
 		ft_strlcpy(trimmed, &s1[j], k - j + 1);
 	}
 	else
