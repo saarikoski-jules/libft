@@ -436,6 +436,41 @@ void test_split()
 	}
 }
 
+void test_lstnew()
+{
+	t_list *first = ft_lstnew("yo");
+	printf("%s\n", first->content);
+}
+
+void test_lstsize()
+{
+	t_list *one = ft_lstnew("one");
+	t_list *two = ft_lstnew("two");
+	t_list *three = ft_lstnew("three");
+	t_list *four = ft_lstnew("four");
+	
+	// ft_lstadd_front(&four, three);
+	// printf("%s\n", four->next->content);
+	// ft_lstadd_front(&three, two);
+	// ft_lstadd_front(&two, one);
+
+	ft_lstadd_back(&one, two);
+	ft_lstadd_back(&two, three);
+	ft_lstadd_back(&three, four);
+
+	printf("last item's value: %s\n", ft_lstlast(one)->content);
+	printf("amt of items: %d\n", ft_lstsize(one));
+
+
+	// t_list *l = ft_lstnew(strdup("nyacat"));
+	// t_list *n = ft_lstnew(strdup("OK"));
+
+	// ft_lstadd_front(&l, n);
+	// printf("%s\n", l->content);
+
+}
+
+
 int main()
 {
 
@@ -448,13 +483,9 @@ int main()
 	// char *str2 = ft_substr("abababa", 0, 1);
 	// printf("%s\n", str2);
 
-	test_itoa();
+	test_lstsize();
 	// test_substr();
 	return (0);
 }
-
-//proteect malloc in substr, strtrim and itoa
-//protect split in split
-//itoa allocates the wrong size
 
 //segfault strnstr and memmove with single null param
