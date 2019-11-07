@@ -442,11 +442,27 @@ void test_lstnew()
 	printf("%s\n", first->content);
 }
 
-void test_lstsize()
+void delete(void *item)
+{
+	item = NULL;
+}
+
+void *iter(void *item)
+{
+	printf("iter: %s\n", item);
+	return (item);
+}
+
+void item(void *item)
+{
+	printf("mapped array item: %s\n", item);
+}
+
+void test_lst()
 {
 	t_list *one = ft_lstnew("one");
 	t_list *two = ft_lstnew("two");
-	t_list *three = ft_lstnew("three");
+	t_list *three = ft_lstnew(NULL);
 	t_list *four = ft_lstnew("four");
 	
 	// ft_lstadd_front(&four, three);
@@ -454,13 +470,31 @@ void test_lstsize()
 	// ft_lstadd_front(&three, two);
 	// ft_lstadd_front(&two, one);
 
+	t_list *head;
+
+	head = NULL;
+	
+	ft_lstadd_back(&head, one);
 	ft_lstadd_back(&one, two);
 	ft_lstadd_back(&two, three);
 	ft_lstadd_back(&three, four);
+	printf("head: %p", &head);
 
-	printf("last item's value: %s\n", ft_lstlast(one)->content);
-	printf("amt of items: %d\n", ft_lstsize(one));
+	t_list *mapped;
 
+	void (*del)(void *) = &delete;
+	void *(*f)(void *) = &iter;
+	void (*third)(void *) = &item;
+	mapped = ft_lstmap(one, f, delete);
+	printf("mapped: %p\n", &mapped);
+	ft_lstiter(mapped, third);
+
+	// ft_lstiter(one, iter);
+
+	// printf("last item's value: %s\n", ft_lstlast(one)->content);
+	// printf("amt of items: %d\n", ft_lstsize(one));
+
+	//lstaddback doesnt work with null???
 
 	// t_list *l = ft_lstnew(strdup("nyacat"));
 	// t_list *n = ft_lstnew(strdup("OK"));
@@ -468,8 +502,66 @@ void test_lstsize()
 	// ft_lstadd_front(&l, n);
 	// printf("%s\n", l->content);
 
-}
+	// ft_lstclear(&one, del);
 
+	// t_list *l = ((void *)0);
+	// t_list *n = ft_lstnew(strdup("OK"));
+
+	// ft_lstadd_back(&l, n);
+	// printf("%p == %p\n", l, n);
+	// printf("%s == OK\n", l->content);
+
+
+
+// t_list *l = lstnew(strdup("nyancat"));
+
+// 	l->next = lstnew(strdup("#TEST#"));
+// 	ft_lstclear(&l, lstdelone_f);
+// 	write(2, "", 1);
+// 	if (!l)
+// 		exit(TEST_SUCCESS);
+// 	exit(TEST_FAILED);
+
+
+
+
+
+//must free the list
+
+// t_list *l = lstnew(strdup("nyancat"));
+// 	t_list *tmp;
+
+// 	l->next = lstnew(strdup("#TEST#"));
+// 	tmp = l->next;
+// 	ft_lstclear(&l, lstdelone_f);
+// 	if (!l)
+// 	{
+// 		free(tmp);
+// 		exit(TEST_SUCCESS);
+// 	}
+// 	exit(TEST_FAILED);
+
+
+
+//bad call number of the function pointer
+
+// char *content = "hello !";
+
+// 	__delNum = 0;
+// 	list = malloc(sizeof(t_list));
+// 	__builtin___memset_chk (list, 0, sizeof(t_list), __builtin_object_size (list, 0));
+// 	list->next = malloc(sizeof(t_list));
+// 	__builtin___memset_chk (list->next, 0, sizeof(t_list), __builtin_object_size (list->next, 0));
+// 	list->content = content;
+// 	list->next->content = content + 2;
+// 	ft_lstclear(&list, lstclear_f);
+// 	if (__delNum == 2)
+// 		exit(TEST_SUCCESS);
+// 	exit(TEST_FAILED);
+
+
+
+}
 
 int main()
 {
@@ -482,10 +574,14 @@ int main()
 
 	// char *str2 = ft_substr("abababa", 0, 1);
 	// printf("%s\n", str2);
-
-	test_lstsize();
+	jelle_bonus();
 	// test_substr();
 	return (0);
 }
 
 //segfault strnstr and memmove with single null param
+
+
+//atoi long longs longs longs
+//strncmp CRASHES in all caps
+// gcc libft_criterion_test/test_libft_criterion.c -lcriterion -Llibft -lft
