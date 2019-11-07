@@ -512,55 +512,6 @@ void test_lst()
 	// printf("%s == OK\n", l->content);
 
 
-
-// t_list *l = lstnew(strdup("nyancat"));
-
-// 	l->next = lstnew(strdup("#TEST#"));
-// 	ft_lstclear(&l, lstdelone_f);
-// 	write(2, "", 1);
-// 	if (!l)
-// 		exit(TEST_SUCCESS);
-// 	exit(TEST_FAILED);
-
-
-
-
-
-//must free the list
-
-// t_list *l = lstnew(strdup("nyancat"));
-// 	t_list *tmp;
-
-// 	l->next = lstnew(strdup("#TEST#"));
-// 	tmp = l->next;
-// 	ft_lstclear(&l, lstdelone_f);
-// 	if (!l)
-// 	{
-// 		free(tmp);
-// 		exit(TEST_SUCCESS);
-// 	}
-// 	exit(TEST_FAILED);
-
-
-
-//bad call number of the function pointer
-
-// char *content = "hello !";
-
-// 	__delNum = 0;
-// 	list = malloc(sizeof(t_list));
-// 	__builtin___memset_chk (list, 0, sizeof(t_list), __builtin_object_size (list, 0));
-// 	list->next = malloc(sizeof(t_list));
-// 	__builtin___memset_chk (list->next, 0, sizeof(t_list), __builtin_object_size (list->next, 0));
-// 	list->content = content;
-// 	list->next->content = content + 2;
-// 	ft_lstclear(&list, lstclear_f);
-// 	if (__delNum == 2)
-// 		exit(TEST_SUCCESS);
-// 	exit(TEST_FAILED);
-
-
-
 }
 
 int main()
@@ -574,8 +525,10 @@ int main()
 
 	// char *str2 = ft_substr("abababa", 0, 1);
 	// printf("%s\n", str2);
-	jelle_bonus();
+	// jelle_bonus();
 	// test_substr();
+	
+	ft_memset(NULL, 2, 2);
 	return (0);
 }
 

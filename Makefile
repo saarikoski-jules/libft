@@ -49,7 +49,7 @@ clean:
 fclean:
 	@rm -f $(NAME)
 	@rm -f a.out
-	@Clean!
+	@echo Clean!
 
 re: fclean all
 
