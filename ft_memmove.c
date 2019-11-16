@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 13:35:33 by jsaariko       #+#    #+#                */
-/*   Updated: 2019/11/04 14:25:45 by jsaariko      ########   odam.nl         */
+/*   Updated: 2019/11/07 18:27:27 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,7 @@ void	*ft_memmove(void *s1, const void *s2, size_t n)
 	if (s1 == NULL && s2 == NULL)
 		return (s1_copy);
 	if (s1_copy < s2_copy && n != 0)
-	{
-		i = 0;
-		while (i < n && s2_copy[i] != '\0')
-		{
-			s1_copy[i] = s2_copy[i];
-			i++;
-		}
-	}
+		ft_memcpy(s1, s2, n);
 	else
 	{
 		i = n;

@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstadd_back.c                                   :+:    :+:            */
+/*   ft_lstlast.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/05 21:11:30 by jsaariko       #+#    #+#                */
-/*   Updated: 2019/11/07 12:43:05 by jsaariko      ########   odam.nl         */
+/*   Created: 2019/11/05 21:02:31 by jsaariko       #+#    #+#                */
+/*   Updated: 2019/11/07 14:23:55 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h> //REMOVE
 
-
-void ft_lstadd_back(t_list **alst, t_list *new)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_list *last;
+	t_list *temp;
 
-	if (new == NULL)
+	if (lst == NULL)
+		return (NULL);
+	temp = lst;
+	while (temp->next != NULL)
 	{
-		return ;
+		temp = temp->next;
 	}
-	if (*alst == NULL)
-	{
-		// printf("lstadd_back: start == NULL\n");
-		alst = &new;
-		// printf("%p\n", alst);
-		return ;
-	}
-	// printf("lstadd_back: triggering lstlast\n");
-	last = ft_lstlast(*alst);
-	last->next = new;
+	return (temp);
 }

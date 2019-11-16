@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 13:04:40 by jsaariko       #+#    #+#                */
-/*   Updated: 2019/10/29 20:01:30 by jsaariko      ########   odam.nl         */
+/*   Updated: 2019/11/08 18:43:03 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *s)
 {
-	int	i;
-	int	total;
-	int	sign;
+	int					i;
+	unsigned long long	total;
+	int					sign;
 
 	i = 0;
 	total = 0;
@@ -34,5 +34,9 @@ int	ft_atoi(const char *s)
 		total = 10 * total + (s[i] - '0');
 		i++;
 	}
-	return (total * sign);
+	if (total > 9223372036854775807 && sign == -1)
+		total = 0;
+	else if (total > 9223372036854775807 && sign == 1)
+		total = -1;
+	return ((int)(total * sign));
 }

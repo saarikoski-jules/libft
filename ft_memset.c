@@ -6,11 +6,9 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 13:36:38 by jsaariko       #+#    #+#                */
-/*   Updated: 2019/10/31 09:08:06 by jsaariko      ########   odam.nl         */
+/*   Updated: 2019/11/06 10:10:36 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
-
-//DOUBLE CHECK
 
 #include "libft.h"
 
