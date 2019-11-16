@@ -6,7 +6,7 @@
 #    By: jsaariko <jsaariko@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/09 16:26:10 by jsaariko       #+#    #+#                 #
-#    Updated: 2019/11/14 17:16:07 by jsaariko      ########   odam.nl          #
+#    Updated: 2019/11/16 11:21:33 by jsaariko      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,10 @@ $(OBJECTS):
 $(BONUS_OBJECTS):
 	@gcc $(FLAGS) -c $(BONUS)
 	@echo "Bonus objects compiled"
+
+test: bonus
+	@gcc tests.c -L. -lft
+	@echo "Tests compiled"
 
 clean:
 	@rm -f $(OBJECTS) $(BONUS_OBJECTS)
