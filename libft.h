@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/02 15:48:44 by jsaariko       #+#    #+#                */
-/*   Updated: 2019/11/07 18:06:36 by jsaariko      ########   odam.nl         */
+/*   Updated: 2019/11/16 11:29:39 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 size_t				ft_strlen(const char *s);
+int					ft_numlen(int n);
 void				*ft_memset(void *ptr, int c, size_t n);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *s1, const void *s2, size_t n);

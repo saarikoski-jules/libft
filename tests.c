@@ -525,10 +525,6 @@ int main()
 
 	// char *str2 = ft_substr("abababa", 0, 1);
 	// printf("%s\n", str2);
-	// jelle_bonus();
-	// test_substr();
-	
-	ft_memset(NULL, 2, 2);
 	return (0);
 }
 

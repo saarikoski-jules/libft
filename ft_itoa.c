@@ -6,28 +6,11 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/31 12:38:41 by jsaariko       #+#    #+#                */
-/*   Updated: 2019/11/07 20:54:39 by jsaariko      ########   odam.nl         */
+/*   Updated: 2019/11/16 11:28:38 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	find_length(int n)
-{
-	int l;
-
-	l = 0;
-	if (n == 0)
-		return (1);
-	if (n < 0)
-		l++;
-	while (n != 0)
-	{
-		n /= 10;
-		l++;
-	}
-	return (l);
-}
 
 static char	*exceptions(int n)
 {
@@ -54,7 +37,7 @@ char		*ft_itoa(int n)
 
 	if (n == -2147483648 || n == 0)
 		return (exceptions(n));
-	l = find_length(n);
+	l = ft_numlen(n);
 	arr = (char *)malloc((l + 1) * sizeof(char));
 	if (arr == NULL)
 		return (NULL);
