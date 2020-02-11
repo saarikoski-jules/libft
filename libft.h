@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/02 15:48:44 by jsaariko       #+#    #+#                */
-/*   Updated: 2019/11/23 22:44:24 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/02/11 15:44:21 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,8 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *), \
 					void (*del)(void *));
 void				*ft_realloc(void *ptr, size_t size);
+void				*ft_recalloc(void *ptr, size_t size);
+int					ft_strchrset(const char *str, const char *charset);
+char				*ft_strdupchr(const char *str, const char *charset);
 
 #endif

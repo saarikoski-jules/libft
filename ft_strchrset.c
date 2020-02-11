@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstmap.c                                        :+:    :+:            */
+/*   ft_strchrset.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/06 17:09:34 by jsaariko       #+#    #+#                */
-/*   Updated: 2019/11/08 17:54:05 by jsaariko      ########   odam.nl         */
+/*   Created: 2020/02/01 15:02:49 by jsaariko       #+#    #+#                */
+/*   Updated: 2020/02/11 15:51:07 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+int	ft_strchrset(const char *str, const char *charset)
 {
-	t_list *new;
+	int i;
+	int j;
 
-	new = NULL;
-	if (lst != NULL)
+	i = 0;
+	j = 0;
+	if (str == NULL)
+		return (0);
+	if (charset == NULL)
+		return (ft_strlen(str));
+	while (str[i] != '\0')
 	{
-		new = ft_lstnew(f(lst->content));
-		if (new != NULL)
-			new->next = ft_lstmap(lst->next, f, del);
-		else
+		j = 0;
+		while (charset[j] != '\0')
 		{
-			ft_lstclear(&new, del);
-			return (NULL);
+			if (str[i] == charset[j])
+				return (i);
+			j++;
 		}
+		i++;
 	}
-	return (new);
+	return (-1);
 }

@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstadd_back.c                                   :+:    :+:            */
+/*   ft_strdupchr.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/05 21:11:30 by jsaariko       #+#    #+#                */
-/*   Updated: 2019/11/07 18:21:23 by jsaariko      ########   odam.nl         */
+/*   Created: 2020/01/31 04:48:30 by jsaariko       #+#    #+#                */
+/*   Updated: 2020/02/01 15:13:33 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **alst, t_list *new)
+char		*ft_strdupchr(const char *str, const char *charset)
 {
-	t_list *last;
+	int		i;
+	char	*res;
 
-	if (new == NULL)
-		return ;
-	if (*alst == NULL)
+	if (str == NULL)
+		return (ft_strdup(""));
+	i = ft_strchrset(str, charset);
+	if (i == -1)
 	{
-		*alst = new;
-		return ;
+		res = ft_strdup(str);
+		return (res);
 	}
-	last = ft_lstlast(*alst);
-	last->next = new;
+	res = (char *)malloc((i + 1) * sizeof(char));
+	ft_strlcpy(res, str, i + 1);
+	return (res);
 }
