@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/02 15:48:44 by jsaariko       #+#    #+#                */
-/*   Updated: 2020/02/11 18:59:25 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/02/12 19:34:25 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,7 @@ void				*ft_recalloc(void *ptr, size_t size);
 int					ft_strchrset(const char *str, const char *charset);
 char				*ft_strdupchr(const char *str, const char *charset);
 char				*ft_strjoinchar(char *str, char c);
+char				*ft_lltoa_base(long long value, int base);
+int					ft_numlen_base(long long value, int base);
 
 #endif
