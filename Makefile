@@ -6,7 +6,7 @@
 #    By: jsaariko <jsaariko@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/09 16:26:10 by jsaariko       #+#    #+#                 #
-#    Updated: 2020/02/13 10:51:40 by jsaariko      ########   odam.nl          #
+#    Updated: 2020/02/13 14:07:50 by jsaariko      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ ft_memset ft_bzero ft_memcpy ft_memccpy ft_memmove ft_memchr ft_memcmp \
 ft_strlcpy ft_strlcat ft_strchr ft_strrchr ft_strnstr ft_strncmp ft_atoi \
 ft_calloc ft_substr ft_strjoin ft_strtrim ft_strmapi ft_itoa ft_split \
 ft_strdup ft_numlen ft_realloc ft_recalloc ft_strchrset ft_strdupchr \
-ft_strjoinchar ft_numlen_base ft_numtochar_base ft_lltoa_base ft_ulltoa_base
+ft_strjoinchar ft_numlen_base ft_numtochar_base ft_lltoa_base ft_ulltoa_base \
+ft_toupperstr ft_tolowerstr
 CFILES = $(SRCS:%=%.c)
 OBJECTS = $(SRCS:%=%.o)
 BONUS = $(BONUS_SRCS:%=%.c)

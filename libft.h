@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/02 15:48:44 by jsaariko       #+#    #+#                */
-/*   Updated: 2020/02/13 10:54:14 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/02/13 14:07:24 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,7 @@ int					ft_numlen_base(long long value, int base);
 char				ft_numtochar_base(int n);
 char				*ft_lltoa_base(long long value, int base);
 char				*ft_ulltoa_base(unsigned long long value, int base);
+char				*ft_toupperstr(char *str);
+char				*ft_tolowerstr(char *str);
 
 #endif
