@@ -6,7 +6,7 @@
 #    By: jsaariko <jsaariko@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/09 16:26:10 by jsaariko       #+#    #+#                 #
-#    Updated: 2020/02/13 14:07:50 by jsaariko      ########   odam.nl          #
+#    Updated: 2020/02/19 17:28:45 by jsaariko      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,12 +27,12 @@ FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
+$(NAME): objects
 	@ar -rc $(NAME) $(OBJECTS)
 	@ranlib $(NAME)
 	@echo "Library compiled"
 
-$(OBJECTS):
+objects:
 	@gcc $(FLAGS) -c $(CFILES)
 	@echo "Objects compiled"
 
