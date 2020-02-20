@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/02 15:48:44 by jsaariko       #+#    #+#                */
-/*   Updated: 2020/02/16 15:45:50 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/02/20 15:44:55 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,6 @@ char				*ft_lltoa_base(long long value, int base);
 char				*ft_ulltoa_base(unsigned long long value, int base);
 void				ft_toupperstr(char **str);
 void				ft_tolowerstr(char **str);
+char				*ft_strjoinindex(const char *s1, const char *s2, int index);
 
 #endif

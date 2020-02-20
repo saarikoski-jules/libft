@@ -6,7 +6,7 @@
 #    By: jsaariko <jsaariko@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/09 16:26:10 by jsaariko       #+#    #+#                 #
-#    Updated: 2020/02/19 17:28:45 by jsaariko      ########   odam.nl          #
+#    Updated: 2020/02/20 15:44:03 by jsaariko      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ ft_strlcpy ft_strlcat ft_strchr ft_strrchr ft_strnstr ft_strncmp ft_atoi \
 ft_calloc ft_substr ft_strjoin ft_strtrim ft_strmapi ft_itoa ft_split \
 ft_strdup ft_numlen ft_realloc ft_recalloc ft_strchrset ft_strdupchr \
 ft_strjoinchar ft_numlen_base ft_numtochar_base ft_lltoa_base ft_ulltoa_base \
-ft_toupperstr ft_tolowerstr
+ft_toupperstr ft_tolowerstr ft_strjoinindex
 CFILES = $(SRCS:%=%.c)
 OBJECTS = $(SRCS:%=%.o)
 BONUS = $(BONUS_SRCS:%=%.c)
@@ -34,19 +34,19 @@ $(NAME): objects
 
 objects:
 	@gcc $(FLAGS) -c $(CFILES)
-	@echo "Objects compiled"
+	@echo "Libft objects compiled"
 
 test: bonus
 	@gcc tests.c -L. -lft
-	@echo "Tests compiled"
+	@echo "Libft tests compiled"
 
 clean:
 	@rm -f $(OBJECTS) $(BONUS_OBJECTS)
-	@echo "Cleared object files"
+	@echo "Cleared libft object files"
 
 fclean: clean
 	@rm -f $(NAME)
 	@rm -f a.out
-	@echo "Clean!"
+	@echo "Libft clean!"
 
 re: fclean all
