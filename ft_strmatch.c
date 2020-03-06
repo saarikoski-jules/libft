@@ -6,13 +6,13 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/05 14:24:05 by jsaariko       #+#    #+#                */
-/*   Updated: 2020/03/05 14:25:42 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/03/06 10:12:32 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_strmatch(const char *str, const char *match)
+int	ft_strmatch(const char *str, const char *match)
 {
 	int len;
 
