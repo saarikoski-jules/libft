@@ -6,12 +6,13 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/06 18:03:40 by jsaariko       #+#    #+#                */
-/*   Updated: 2020/03/09 18:50:19 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/03/12 14:10:53 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_ftoa.h"
+#include <float.h>//
 
 static char	*strjoin_free(char **str, char **c)
 {
@@ -65,7 +66,7 @@ static char	*gen_float_str(long long d, char *dec)
 	if (d == -9223372036854775808.0)
 		main = ft_strdup("-9223372036854775808");
 	else
-		main = ft_lltoa_base(d, 10);
+		main = ft_lltoa_base(d, 10);//TODO change to one that handles more than max lld
 	if (!main)
 		return (NULL);
 	tmp = ft_strjoin(main, ".");
@@ -106,6 +107,7 @@ static char	*handle_precision(double num, ssize_t precision)
 char		*ft_ftoa(double num, ssize_t precision)
 {
 	char *main;
+	char *neg_zero;
 
 	main = NULL;
 	if (precision > 0)
@@ -116,7 +118,17 @@ char		*ft_ftoa(double num, ssize_t precision)
 			num += 1;
 		main = ft_lltoa_base((long long)num, 10);
 	}
+	if (1 / num < -FLT_MAX && num == 0)
+	{
+		neg_zero = ft_strjoin("-", main);
+		free(main);
+		if (!neg_zero)
+			return (NULL);
+		return (neg_zero);
+	}
 	if (!main)
 		return (NULL);
 	return (main);
 }
+
+//TODO big boy numbers
