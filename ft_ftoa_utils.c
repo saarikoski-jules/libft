@@ -6,11 +6,13 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 15:37:33 by jsaariko       #+#    #+#                */
-/*   Updated: 2020/03/09 18:52:00 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/03/12 19:00:32 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>//
+#include <stdio.h>//
 
 int	get_last_dec(double num, ssize_t precision)
 {
@@ -19,11 +21,10 @@ int	get_last_dec(double num, ssize_t precision)
 	double		f;
 
 	i = 0;
+	if (num > LLONG_MAX || num < LLONG_MIN)
+		num = 0.0;
 	d = (long long)num;
-	if (num == 9223372036854775808.000000)
-		f = num + d;
-	else
-		f = num - d;
+	f = num - d;
 	while(i < precision)
 	{
 		f = f * 10;

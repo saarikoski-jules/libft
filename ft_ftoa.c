@@ -6,13 +6,14 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/06 18:03:40 by jsaariko       #+#    #+#                */
-/*   Updated: 2020/03/12 14:10:53 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/03/12 19:14:09 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_ftoa.h"
-#include <float.h>//
+#include <float.h>
+#include <limits.h>
 
 static char	*strjoin_free(char **str, char **c)
 {
@@ -48,7 +49,7 @@ static char	*get_prec_str(double num, ssize_t prec, int *lst)
 	while (0 <= prec)
 	{
 		new_char = ft_lltoa_base(d, 10);
-		final = strjoin_free(&new_char, &final);//might leak on fail..
+		final = strjoin_free(&new_char, &final);
 		if (!final)
 			return (NULL);
 		d = round_dec(&last, 9, num, prec);
@@ -63,10 +64,10 @@ static char	*gen_float_str(long long d, char *dec)
 	char *main;
 	char *tmp;
 
-	if (d == -9223372036854775808.0)
+	if (d == LLONG_MIN)
 		main = ft_strdup("-9223372036854775808");
 	else
-		main = ft_lltoa_base(d, 10);//TODO change to one that handles more than max lld
+		main = ft_lltoa_base(d, 10);
 	if (!main)
 		return (NULL);
 	tmp = ft_strjoin(main, ".");
@@ -110,6 +111,8 @@ char		*ft_ftoa(double num, ssize_t precision)
 	char *neg_zero;
 
 	main = NULL;
+	// if (num > LLONG_MAX || num < LLONG_MIN)
+		// num = 0.0;
 	if (precision > 0)
 		main = handle_precision(num, precision);
 	else if (precision == 0)
@@ -131,4 +134,4 @@ char		*ft_ftoa(double num, ssize_t precision)
 	return (main);
 }
 
-//TODO big boy numbers
+//TODO Somehow fail this????
