@@ -6,13 +6,12 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 15:37:33 by jsaariko       #+#    #+#                */
-/*   Updated: 2020/03/12 19:00:32 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/03/14 11:59:51 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>//
-#include <stdio.h>//
+#include <limits.h>
 
 int	get_last_dec(double num, ssize_t precision)
 {
@@ -25,7 +24,7 @@ int	get_last_dec(double num, ssize_t precision)
 		num = 0.0;
 	d = (long long)num;
 	f = num - d;
-	while(i < precision)
+	while (i < precision)
 	{
 		f = f * 10;
 		d = (int)f;

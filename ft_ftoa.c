@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/06 18:03:40 by jsaariko       #+#    #+#                */
-/*   Updated: 2020/03/12 19:14:09 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/03/14 11:59:09 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,8 +111,6 @@ char		*ft_ftoa(double num, ssize_t precision)
 	char *neg_zero;
 
 	main = NULL;
-	// if (num > LLONG_MAX || num < LLONG_MIN)
-		// num = 0.0;
 	if (precision > 0)
 		main = handle_precision(num, precision);
 	else if (precision == 0)
@@ -133,5 +131,3 @@ char		*ft_ftoa(double num, ssize_t precision)
 		return (NULL);
 	return (main);
 }
-
-//TODO Somehow fail this????

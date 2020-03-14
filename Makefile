@@ -6,7 +6,7 @@
 #    By: jsaariko <jsaariko@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/09 16:26:10 by jsaariko       #+#    #+#                 #
-#    Updated: 2020/03/09 15:41:18 by jsaariko      ########   odam.nl          #
+#    Updated: 2020/03/14 12:26:25 by jsaariko      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,28 +20,22 @@ ft_strdup ft_numlen ft_realloc ft_recalloc ft_strchrset ft_strdupchr \
 ft_strjoinchar ft_numlen_base ft_numtochar_base ft_lltoa_base ft_ulltoa_base \
 ft_toupperstr ft_tolowerstr ft_strjoinindex ft_strmatch ft_ftoa ft_ftoa_utils
 CFILES = $(SRCS:%=%.c)
-OBJECTS = $(SRCS:%=%.o)
-BONUS = $(BONUS_SRCS:%=%.c)
-BONUS_OBJECTS = $(BONUS_SRCS:%=%.o)
+LIBFT_OBJECTS = $(SRCS:%=%.o)
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): objects
-	@ar -rc $(NAME) $(OBJECTS)
+$(NAME): $(LIBFT_OBJECTS)
+	@ar -rc $(NAME) $(LIBFT_OBJECTS)
 	@ranlib $(NAME)
 	@echo "Library compiled"
 
-objects:
+$(LIBFT_OBJECTS):
 	@gcc $(FLAGS) -c $(CFILES)
 	@echo "Libft objects compiled"
 
-test: bonus
-	@gcc tests.c -L. -lft
-	@echo "Libft tests compiled"
-
 clean:
-	@rm -f $(OBJECTS) $(BONUS_OBJECTS)
+	@rm -f $(LIBFT_OBJECTS)
 	@echo "Cleared libft object files"
 
 fclean: clean
