@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/14 13:02:19 by jsaariko       #+#    #+#                */
-/*   Updated: 2020/03/15 11:44:20 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/03/15 12:47:20 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,6 @@ typedef	enum		e_transition_code
 }					t_transition_code;
 
 typedef char *(*t_func)(t_printf_arg **);
-
-int					ft_printf(const char *str, ...);
 
 /*
 **	PARSER

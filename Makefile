@@ -6,7 +6,7 @@
 #    By: jsaariko <jsaariko@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/09 16:26:10 by jsaariko       #+#    #+#                 #
-#    Updated: 2020/03/15 11:53:34 by jsaariko      ########   odam.nl          #
+#    Updated: 2020/03/15 12:53:39 by jsaariko      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,7 +95,7 @@ FLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(LIBFT_OBJECTS)
-	@ar -rc $(NAME) $(LIBFT_OBJECTS)
+	@ar -rc $(NAME) $(LIBFT_OBJECTS) $(PRINTF_OBJECTS)
 	@ranlib $(NAME)
 	@echo "Library compiled"
 
