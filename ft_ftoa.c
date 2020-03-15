@@ -6,12 +6,12 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/06 18:03:40 by jsaariko       #+#    #+#                */
-/*   Updated: 2020/03/14 11:59:09 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/03/15 16:24:42 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "ft_ftoa.h"
+#include "includes/ft_ftoa.h"
 #include <float.h>
 #include <limits.h>
 

@@ -6,7 +6,7 @@
 #    By: jsaariko <jsaariko@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/09 16:26:10 by jsaariko       #+#    #+#                 #
-#    Updated: 2020/03/15 12:53:39 by jsaariko      ########   odam.nl          #
+#    Updated: 2020/03/15 16:21:58 by jsaariko      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,6 +63,8 @@ SRCS =	ft_putchar_fd.c \
 		ft_strmatch.c \
 		ft_ftoa.c \
 		ft_ftoa_utils.c \
+		get_next_line.c \
+		get_next_line_utils.c \
 
 PRINTF_SRCS =	$(PRINTF_DIR)ft_printf.c \
 				$(PRINTF_DIR)gen_arg_str.c \
