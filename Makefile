@@ -66,6 +66,7 @@ LFT_SRCS =	ft_putchar_fd.c \
 		get_next_line.c \
 		get_next_line_utils.c \
 		ft_pow.c \
+		ft_atof.c \
 
 PRINTF_SRCS =	$(PRINTF_DIR)ft_printf.c \
 				$(PRINTF_DIR)gen_arg_str.c \
