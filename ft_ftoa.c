@@ -61,33 +61,33 @@ static char	*get_prec_str(double num, ssize_t prec, int *lst)
 
 static char	*gen_float_str(long long d, char *dec)
 {
-	char *main;
+	char *main_str;
 	char *tmp;
 
 	if (d == LLONG_MIN)
-		main = ft_strdup("-9223372036854775808");
+		main_str = ft_strdup("-9223372036854775808");
 	else
-		main = ft_lltoa_base(d, 10);
-	if (!main)
+		main_str = ft_lltoa_base(d, 10);
+	if (!main_str)
 		return (NULL);
-	tmp = ft_strjoin(main, ".");
-	free(main);
+	tmp = ft_strjoin(main_str, ".");
+	free(main_str);
 	if (!tmp)
 		return (NULL);
-	main = ft_strjoin(tmp, dec);
+	main_str = ft_strjoin(tmp, dec);
 	free(dec);
 	free(tmp);
-	return (main);
+	return (main_str);
 }
 
 static char	*handle_precision(double num, ssize_t precision)
 {
-	char		*main;
+	char		*main_str;
 	char		*dec;
 	long long	d;
 	int			last;
 
-	main = NULL;
+	main_str = NULL;
 	dec = get_prec_str(num, precision, &last);
 	if (!dec)
 		return (NULL);
@@ -99,35 +99,35 @@ static char	*handle_precision(double num, ssize_t precision)
 		else if (num < 0)
 			d--;
 	}
-	main = gen_float_str(d, dec);
-	if (!main)
+	main_str = gen_float_str(d, dec);
+	if (!main_str)
 		return (NULL);
-	return (main);
+	return (main_str);
 }
 
 char		*ft_ftoa(double num, ssize_t precision)
 {
-	char *main;
+	char *main_str;
 	char *neg_zero;
 
-	main = NULL;
+	main_str = NULL;
 	if (precision > 0)
-		main = handle_precision(num, precision);
+		main_str = handle_precision(num, precision);
 	else if (precision == 0)
 	{
 		if (get_last_dec(num, 0) >= 5)
 			num += 1;
-		main = ft_lltoa_base((long long)num, 10);
+		main_str = ft_lltoa_base((long long)num, 10);
 	}
 	if (1 / num < -FLT_MAX && num == 0)
 	{
-		neg_zero = ft_strjoin("-", main);
-		free(main);
+		neg_zero = ft_strjoin("-", main_str);
+		free(main_str);
 		if (!neg_zero)
 			return (NULL);
 		return (neg_zero);
 	}
-	if (!main)
+	if (!main_str)
 		return (NULL);
-	return (main);
+	return (main_str);
 }
