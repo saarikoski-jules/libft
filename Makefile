@@ -13,7 +13,7 @@
 NAME = libft.a
 PRINTF_DIR = ft_printf/
 GNL_DIR = get_next_line/
-SRCS =	ft_putchar_fd.c \
+LFT_SRCS =	ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
@@ -65,6 +65,7 @@ SRCS =	ft_putchar_fd.c \
 		ft_ftoa_utils.c \
 		get_next_line.c \
 		get_next_line_utils.c \
+		ft_pow.c \
 
 PRINTF_SRCS =	$(PRINTF_DIR)ft_printf.c \
 				$(PRINTF_DIR)gen_arg_str.c \
@@ -88,23 +89,23 @@ PRINTF_SRCS =	$(PRINTF_DIR)ft_printf.c \
 				$(PRINTF_DIR)convert_ptr.c \
 				$(PRINTF_DIR)convert_float.c \
 				$(PRINTF_DIR)format_buffer.c \
-				$(PRINTF_DIR)clear_list.c
+				$(PRINTF_DIR)clear_list.c \
 
-LIBFT_OBJECTS = $(SRCS:%.c=%.o)
+LIBFT_OBJECTS = $(LFT_SRCS:%.c=%.o)
 PRINTF_OBJECTS = $(PRINTF_SRCS:%.c=%.o)
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
+%.o: %.c
+	@echo "Compiling $@"
+	@gcc $(FLAGS) -c $< -o $@
+
 $(NAME): $(LIBFT_OBJECTS)
+	@make -C $(PRINTF_DIR) printf
 	@ar -rc $(NAME) $(LIBFT_OBJECTS) $(PRINTF_OBJECTS)
 	@ranlib $(NAME)
 	@echo "Library compiled"
-
-$(LIBFT_OBJECTS):
-	@make -C $(PRINTF_DIR) $(O_FILES_PRINTF)
-	@gcc $(FLAGS) -c $(SRCS)
-	@echo "Libft objects compiled"
 
 clean:
 	@rm -f $(LIBFT_OBJECTS)

@@ -83,5 +83,6 @@ char				*ft_strjoinindex(const char *s1, const char *s2, int index);
 int					ft_strmatch(const char *str, const char *match);
 int					ft_printf(const char *str, ...);
 int					get_next_line(int fd, char **line);
+double				ft_pow(double base, int exp);
 
 #endif

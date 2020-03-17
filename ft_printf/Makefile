@@ -34,14 +34,17 @@ C_FILES	=	ft_printf.c \
 			convert_ptr.c \
 			convert_float.c \
 			format_buffer.c \
-			clear_list.c
+			clear_list.c \
 
 O_FILES_PRINTF	=	$(C_FILES:%.c=%.o)
 FLAGS	=	-Wall -Wextra -Werror
 
-$(O_FILES_PRINTF):
-	@gcc $(FLAGS) -I.. -c $(C_FILES)
-	@echo "Printf object files compiled"
+%.o: %.c
+	@gcc $(FLAGS) -I.. -c $< -o $@
+	@echo "Compiled $@ in printf"
+
+printf: $(O_FILES_PRINTF)
+	@echo "Printf objects compiled"
 
 clean:
 	@rm -f $(O_FILES_PRINTF)
