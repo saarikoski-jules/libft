@@ -15,16 +15,11 @@
 static int		get_actual_prec(t_printf_arg **arg, char *num_str)
 {
 	ssize_t	len;
-	int		base;
 	int		prec;
 
 	len = ft_strlen(num_str);
 	if (num_str[0] == '-')
 		len--;
-	if ((*arg)->conv == p || (*arg)->conv == x || (*arg)->conv == X)
-		base = 16;
-	else
-		base = 10;
 	if ((*arg)->arg.i == 0 && (*arg)->precision == 0)
 		prec = 0;
 	else if ((*arg)->arg.i == 0 && (*arg)->precision == -1)

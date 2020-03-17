@@ -87,16 +87,10 @@ static char	**allocate_arr(char const *s, char c, int amt, char **arr)
 char		**ft_split(char const *s, char c)
 {
 	char	**arr;
-	int		start;
-	int		end;
-	int		i;
 	int		amt;
 
 	if (!s)
 		return (NULL);
-	i = 0;
-	start = 0;
-	end = 0;
 	amt = str_amt(s, c);
 	arr = (char **)malloc(((amt + 1) * sizeof(char *)));
 	if (arr == NULL)
