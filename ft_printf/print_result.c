@@ -38,7 +38,8 @@ int	print_section(const char *str, t_printf_arg **cur_arg, int *i, int *prev)
 		if (cur_ret == -1)
 			return (-1);
 		ret += cur_ret;
-		*i += ft_strmatch(str + *i + 1, "0123456789-*.") + 2;
+		if (str[(*i) + 1] != '\0')
+			*i += ft_strmatch(str + *i + 1, "0123456789-*.") + 2;
 		*prev = *i;
 		if (ft_strchr("cspdiuxXf%", str[*i - 1]) != NULL)
 		{

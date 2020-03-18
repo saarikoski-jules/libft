@@ -21,7 +21,5 @@ int	ft_strmatch(const char *str, const char *match)
 		return (-1);
 	while (ft_strchr(match, str[len]) != NULL && str[len] != '\0')
 		len++;
-	if (str[len] == '\0')
-		len--;
 	return (len);
 }
