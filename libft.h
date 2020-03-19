@@ -50,6 +50,7 @@ char				*ft_strrchr(const char *s, int c);
 char				*ft_strnstr(const char *s1, const char *s2, size_t n);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_atoi(const char *s);
+long long			ft_atoll(const char *s);
 void				*ft_calloc(size_t count, size_t size);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);

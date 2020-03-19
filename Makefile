@@ -39,6 +39,7 @@ LFT_SRCS =	ft_putchar_fd.c \
 		ft_strnstr.c \
 		ft_strncmp.c \
 		ft_atoi.c \
+		ft_atoll.c \
 		ft_calloc.c \
 		ft_substr.c \
 		ft_strjoin.c \
