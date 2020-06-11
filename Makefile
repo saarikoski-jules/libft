@@ -5,8 +5,8 @@
 #                                                      +:+                     #
 #    By: jsaariko <jsaariko@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
-#    Created: 2019/11/09 16:26:10 by jsaariko       #+#    #+#                 #
-#    Updated: 2020/03/15 16:21:58 by jsaariko      ########   odam.nl          #
+#    Created: 2019/11/09 16:26:10 by jsaariko      #+#    #+#                  #
+#    Updated: 2020/06/11 17:38:02 by jsaariko      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ LFT_SRCS =	ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
+		ft_putbytes_fd.c \
 		ft_isalpha.c \
 		ft_isdigit.c \
 		ft_isalnum.c \
