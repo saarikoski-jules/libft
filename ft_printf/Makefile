@@ -5,8 +5,8 @@
 #                                                      +:+                     #
 #    By: jsaariko <jsaariko@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
-#    Created: 2019/12/03 20:38:39 by jsaariko       #+#    #+#                 #
-#    Updated: 2020/03/15 11:54:19 by jsaariko      ########   odam.nl          #
+#    Created: 2019/12/03 20:38:39 by jsaariko      #+#    #+#                  #
+#    Updated: 2020/06/22 10:45:10 by jsaariko      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,6 @@ FLAGS	=	-Wall -Wextra -Werror
 
 %.o: %.c
 	@gcc $(FLAGS) -I.. -c $< -o $@
-	@echo "Compiled $@ in printf"
 
 printf: $(O_FILES_PRINTF)
 	@echo "Printf objects compiled"

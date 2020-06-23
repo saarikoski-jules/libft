@@ -6,7 +6,7 @@
 #    By: jsaariko <jsaariko@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/09 16:26:10 by jsaariko      #+#    #+#                  #
-#    Updated: 2020/06/11 17:38:02 by jsaariko      ########   odam.nl          #
+#    Updated: 2020/06/22 11:07:37 by jsaariko      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,14 +101,13 @@ FLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 %.o: %.c
-	@echo "Compiling $@"
 	@gcc $(FLAGS) -c $< -o $@
 
 $(NAME): $(LIBFT_OBJECTS)
 	@make -C $(PRINTF_DIR) printf
 	@ar -rc $(NAME) $(LIBFT_OBJECTS) $(PRINTF_OBJECTS)
 	@ranlib $(NAME)
-	@echo "Library compiled"
+	@echo "libft compiled"
 
 clean:
 	@rm -f $(LIBFT_OBJECTS)
