@@ -6,16 +6,16 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/22 18:25:11 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/06/22 18:25:11 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/06/23 10:09:00 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-double get_decimal(const char *str)
+double	get_decimal(const char *str)
 {
-	double dec;
-	int i;
+	double	dec;
+	int		i;
 
 	dec = 0.0;
 	i = 0;
@@ -29,7 +29,7 @@ double get_decimal(const char *str)
 	return (dec);
 }
 
-double ft_atof(const char *str)
+double	ft_atof(const char *str)
 {
 	int		i;
 	double	total;

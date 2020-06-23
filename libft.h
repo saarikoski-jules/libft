@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/02 15:48:44 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/06/11 17:40:46 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/06/23 10:08:29 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int c, int fd);
-void					ft_putbytes_fd(const void *bytes, size_t n, int fd);
+void				ft_putbytes_fd(const void *bytes, size_t n, int fd);
 int					ft_isdigit(int c);
 int					ft_isalpha(int c);
 int					ft_isalnum(int c);
