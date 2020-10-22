@@ -6,11 +6,11 @@
 #    By: jsaariko <jsaariko@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/12/03 20:38:39 by jsaariko      #+#    #+#                  #
-#    Updated: 2020/06/22 10:45:10 by jsaariko      ########   odam.nl          #
+#    Updated: 2020/10/22 10:06:54 by jsaariko      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
+NAME = printf
 LIBFT_DIR = ../
 C_FILES	=	ft_printf.c \
 			gen_arg_str.c \
@@ -39,10 +39,12 @@ C_FILES	=	ft_printf.c \
 O_FILES_PRINTF	=	$(C_FILES:%.c=%.o)
 FLAGS	=	-Wall -Wextra -Werror
 
+all: $(NAME)
+
 %.o: %.c
 	@gcc $(FLAGS) -I.. -c $< -o $@
 
-printf: $(O_FILES_PRINTF)
+$(NAME): $(O_FILES_PRINTF)
 	@echo "Printf objects compiled"
 
 clean:
@@ -52,3 +54,5 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 	@echo "Printf all clean!"
+
+re: fclean all

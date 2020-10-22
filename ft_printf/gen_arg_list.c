@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/19 14:05:00 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/06/22 15:22:20 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/22 10:02:56 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_printf_arg	*gen_elem(t_printf_arg **head)
 	t_printf_arg	*new;
 
 	new = malloc(sizeof(t_printf_arg));
+	if (new == NULL)
+		return (NULL);
 	new->next = NULL;
 	new->pad_type = p_normal;
 	new->field_width = 0;

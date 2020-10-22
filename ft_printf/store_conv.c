@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/19 14:04:08 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/03/06 17:50:45 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/22 10:04:06 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,11 @@ int		store_other(char chr, t_printf_arg **cur, va_list ap)
 	{
 		tmp = va_arg(ap, char *);
 		if (tmp != NULL)
-		{
 			(*cur)->arg.s = ft_strdup(tmp);
-			if (!(*cur)->arg.s)
-				return (-1);
-		}
 		else
 			(*cur)->arg.s = ft_strdup("(null)");
+		if (!(*cur)->arg.s)
+			return (-1);
 		(*cur)->conv = s;
 	}
 	else if (chr == 'p')
