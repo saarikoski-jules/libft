@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/14 13:02:19 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/10/22 10:56:21 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/22 11:01:04 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ typedef struct		s_const_args
 	int			fd;
 	const char	*str;
 }					t_const_args;
-
 
 typedef char *(*t_func)(t_dprintf_arg **);
 

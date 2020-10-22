@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/11 12:05:50 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/10/22 10:55:04 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/22 11:02:20 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int	print_conv(int fd, t_dprintf_arg **cur)
 	return (ret);
 }
 
-int	print_section(t_const_args params, t_dprintf_arg **cur_arg, int *i, int *prev)
+int	print_section(t_const_args params, t_dprintf_arg **cur_arg,
+					int *i, int *prev)
 {
 	int ret;
 	int cur_ret;

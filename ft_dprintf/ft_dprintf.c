@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/22 10:16:11 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/10/22 10:50:16 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/22 11:00:34 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_dprintf(int fd, const char *str, ...)
 	int				ret;
 	t_const_args	params;
 
-	if (str == NULL)
+	if (str == NULL || fd < -1)
 		return (-1);
 	head = NULL;
 	va_start(ap, str);
