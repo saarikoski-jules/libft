@@ -6,13 +6,13 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/11 11:25:10 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/03/09 18:52:58 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/22 10:10:57 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_dprintf.h"
 
-t_func	choose_converter(t_printf_arg **cur_arg)
+t_func	choose_converter(t_dprintf_arg **cur_arg)
 {
 	if ((*cur_arg)->conv == c)
 		return (convert_char);
@@ -35,7 +35,7 @@ t_func	choose_converter(t_printf_arg **cur_arg)
 	return (NULL);
 }
 
-char	*execute_arg(t_printf_arg **arg)
+char	*execute_arg(t_dprintf_arg **arg)
 {
 	char	*final_str;
 	char	*conv_str;

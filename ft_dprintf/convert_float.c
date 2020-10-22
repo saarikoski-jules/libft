@@ -6,14 +6,14 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/06 17:51:25 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/03/14 12:01:34 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/22 10:10:57 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_dprintf.h"
 #include <float.h>
 
-char	*convert_float(t_printf_arg **arg)
+char	*convert_float(t_dprintf_arg **arg)
 {
 	char *neg;
 	char *final;

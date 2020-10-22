@@ -6,13 +6,13 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/13 17:22:11 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/03/06 09:32:03 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/22 10:10:57 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_dprintf.h"
 
-char	*convert_ptr(t_printf_arg **arg)
+char	*convert_ptr(t_dprintf_arg **arg)
 {
 	char *prec_buffer;
 	char *num;

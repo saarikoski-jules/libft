@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_printf.c                                        :+:    :+:            */
+/*   ft_dprintf.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/05 18:15:21 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/03/14 11:41:20 by jsaariko      ########   odam.nl         */
+/*   Created: 2020/10/22 10:16:11 by jsaariko      #+#    #+#                 */
+/*   Updated: 2020/10/22 10:50:16 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_dprintf.h"
 
-int	ft_printf(const char *str, ...)
+int	ft_dprintf(int fd, const char *str, ...)
 {
-	t_printf_arg	*head;
+	t_dprintf_arg	*head;
 	va_list			ap;
 	int				ret;
+	t_const_args	params;
 
 	if (str == NULL)
 		return (-1);
@@ -28,7 +29,9 @@ int	ft_printf(const char *str, ...)
 		return (-1);
 	}
 	va_end(ap);
-	ret = manage_print(str, &head);
+	params.fd = fd;
+	params.str = str;
+	ret = manage_print(params, &head);
 	clear_list(&head);
 	return (ret);
 }

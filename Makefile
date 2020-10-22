@@ -6,12 +6,12 @@
 #    By: jsaariko <jsaariko@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/09 16:26:10 by jsaariko      #+#    #+#                  #
-#    Updated: 2020/06/22 11:07:37 by jsaariko      ########   odam.nl          #
+#    Updated: 2020/10/22 10:41:04 by jsaariko      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-PRINTF_DIR = ft_printf/
+DPRINTF_DIR = ft_dprintf/
 GNL_DIR = get_next_line/
 LFT_SRCS =	ft_putchar_fd.c \
 		ft_putstr_fd.c \
@@ -70,32 +70,32 @@ LFT_SRCS =	ft_putchar_fd.c \
 		ft_pow.c \
 		ft_atof.c \
 
-PRINTF_SRCS =	$(PRINTF_DIR)ft_printf.c \
-				$(PRINTF_DIR)gen_arg_str.c \
-				$(PRINTF_DIR)store_conv.c \
-				$(PRINTF_DIR)gen_arg_list.c \
-				$(PRINTF_DIR)parse.c \
-				$(PRINTF_DIR)transition_code.c \
-				$(PRINTF_DIR)base_state.c \
-				$(PRINTF_DIR)dash_state.c \
-				$(PRINTF_DIR)zero_state.c \
-				$(PRINTF_DIR)num_state.c \
-				$(PRINTF_DIR)ast_state.c \
-				$(PRINTF_DIR)precision_state.c \
-				$(PRINTF_DIR)error_state.c \
-				$(PRINTF_DIR)print_result.c \
-				$(PRINTF_DIR)execute.c \
-				$(PRINTF_DIR)convert_char.c \
-				$(PRINTF_DIR)convert_int.c \
-				$(PRINTF_DIR)convert_hex.c \
-				$(PRINTF_DIR)convert_str.c \
-				$(PRINTF_DIR)convert_ptr.c \
-				$(PRINTF_DIR)convert_float.c \
-				$(PRINTF_DIR)format_buffer.c \
-				$(PRINTF_DIR)clear_list.c \
+DPRINTD_SRCS =	$(DPRINTF_DIR)ft_dprintf.c \
+				$(DPRINTF_DIR)gen_arg_str.c \
+				$(DPRINTF_DIR)store_conv.c \
+				$(DPRINTF_DIR)gen_arg_list.c \
+				$(DPRINTF_DIR)parse.c \
+				$(DPRINTF_DIR)transition_code.c \
+				$(DPRINTF_DIR)base_state.c \
+				$(DPRINTF_DIR)dash_state.c \
+				$(DPRINTF_DIR)zero_state.c \
+				$(DPRINTF_DIR)num_state.c \
+				$(DPRINTF_DIR)ast_state.c \
+				$(DPRINTF_DIR)precision_state.c \
+				$(DPRINTF_DIR)error_state.c \
+				$(DPRINTF_DIR)print_result.c \
+				$(DPRINTF_DIR)execute.c \
+				$(DPRINTF_DIR)convert_char.c \
+				$(DPRINTF_DIR)convert_int.c \
+				$(DPRINTF_DIR)convert_hex.c \
+				$(DPRINTF_DIR)convert_str.c \
+				$(DPRINTF_DIR)convert_ptr.c \
+				$(DPRINTF_DIR)convert_float.c \
+				$(DPRINTF_DIR)format_buffer.c \
+				$(DPRINTF_DIR)clear_list.c \
 
 LIBFT_OBJECTS = $(LFT_SRCS:%.c=%.o)
-PRINTF_OBJECTS = $(PRINTF_SRCS:%.c=%.o)
+DPRINTF_OBJECTS = $(DPRINTD_SRCS:%.c=%.o)
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
@@ -104,19 +104,19 @@ all: $(NAME)
 	@gcc $(FLAGS) -c $< -o $@
 
 $(NAME): $(LIBFT_OBJECTS)
-	@make -C $(PRINTF_DIR) printf
-	@ar -rc $(NAME) $(LIBFT_OBJECTS) $(PRINTF_OBJECTS)
+	@make -C $(DPRINTF_DIR) dprintf
+	@ar -rc $(NAME) $(LIBFT_OBJECTS) $(DPRINTF_OBJECTS)
 	@ranlib $(NAME)
 	@echo "libft compiled"
 
 clean:
 	@rm -f $(LIBFT_OBJECTS)
-	@make -C $(PRINTF_DIR) clean
+	@make -C $(DPRINTF_DIR) clean
 	@echo "Cleared libft object files"
 
 fclean: clean
 	@rm -f $(NAME)
-	@make -C $(PRINTF_DIR) fclean
+	@make -C $(DPRINTF_DIR) fclean
 	@echo "Libft clean!"
 
 re: fclean all

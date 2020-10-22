@@ -6,13 +6,13 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/16 15:27:26 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/03/09 18:47:05 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/22 10:10:57 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_dprintf.h"
 
-void	add_conv(char **final, char *conv, t_printf_arg **arg)
+void	add_conv(char **final, char *conv, t_dprintf_arg **arg)
 {
 	size_t final_len;
 	size_t conv_len;

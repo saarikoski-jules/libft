@@ -6,13 +6,13 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/19 14:04:08 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/10/22 10:04:06 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/22 10:10:57 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_dprintf.h"
 
-void	store_uint(char chr, t_printf_arg **cur, va_list ap)
+void	store_uint(char chr, t_dprintf_arg **cur, va_list ap)
 {
 	(*cur)->arg.u = va_arg(ap, unsigned int);
 	if (chr == 'u')
@@ -23,7 +23,7 @@ void	store_uint(char chr, t_printf_arg **cur, va_list ap)
 		(*cur)->conv = x;
 }
 
-void	store_int(char chr, t_printf_arg **cur, va_list ap)
+void	store_int(char chr, t_dprintf_arg **cur, va_list ap)
 {
 	(*cur)->arg.i = va_arg(ap, int);
 	if (chr == 'd')
@@ -32,7 +32,7 @@ void	store_int(char chr, t_printf_arg **cur, va_list ap)
 		(*cur)->conv = i;
 }
 
-void	store_char(char chr, t_printf_arg **cur, va_list ap)
+void	store_char(char chr, t_dprintf_arg **cur, va_list ap)
 {
 	(*cur)->conv = c;
 	if (chr == '%')
@@ -41,13 +41,13 @@ void	store_char(char chr, t_printf_arg **cur, va_list ap)
 		(*cur)->arg.c = va_arg(ap, int);
 }
 
-void	store_float(t_printf_arg **cur, va_list ap)
+void	store_float(t_dprintf_arg **cur, va_list ap)
 {
 	(*cur)->conv = f;
 	(*cur)->arg.f = va_arg(ap, double);
 }
 
-int		store_other(char chr, t_printf_arg **cur, va_list ap)
+int		store_other(char chr, t_dprintf_arg **cur, va_list ap)
 {
 	char *tmp;
 

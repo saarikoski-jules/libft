@@ -6,13 +6,13 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/03 14:52:06 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/03/09 18:46:05 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/22 10:10:57 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_dprintf.h"
 
-static int		get_actual_prec(t_printf_arg **arg, char *num_str)
+static int		get_actual_prec(t_dprintf_arg **arg, char *num_str)
 {
 	ssize_t	len;
 	int		prec;
@@ -36,7 +36,7 @@ static int		get_actual_prec(t_printf_arg **arg, char *num_str)
 	return (prec);
 }
 
-char			*apply_precision(t_printf_arg **arg, char *num_str)
+char			*apply_precision(t_dprintf_arg **arg, char *num_str)
 {
 	char	*new;
 	int		prec;
@@ -50,7 +50,7 @@ char			*apply_precision(t_printf_arg **arg, char *num_str)
 	return (new);
 }
 
-char			*fill_buffer(t_printf_arg **arg)
+char			*fill_buffer(t_dprintf_arg **arg)
 {
 	char	*new;
 	size_t	len;

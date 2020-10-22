@@ -6,13 +6,13 @@
 #    By: jsaariko <jsaariko@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/12/03 20:38:39 by jsaariko      #+#    #+#                  #
-#    Updated: 2020/10/22 10:06:54 by jsaariko      ########   odam.nl          #
+#    Updated: 2020/10/22 10:10:57 by jsaariko      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = printf
+NAME = dprintf
 LIBFT_DIR = ../
-C_FILES	=	ft_printf.c \
+C_FILES	=	ft_dprintf.c \
 			gen_arg_str.c \
 			store_conv.c \
 			gen_arg_list.c \
@@ -36,7 +36,7 @@ C_FILES	=	ft_printf.c \
 			format_buffer.c \
 			clear_list.c \
 
-O_FILES_PRINTF	=	$(C_FILES:%.c=%.o)
+O_FILES_dprintf	=	$(C_FILES:%.c=%.o)
 FLAGS	=	-Wall -Wextra -Werror
 
 all: $(NAME)
@@ -44,15 +44,15 @@ all: $(NAME)
 %.o: %.c
 	@gcc $(FLAGS) -I.. -c $< -o $@
 
-$(NAME): $(O_FILES_PRINTF)
-	@echo "Printf objects compiled"
+$(NAME): $(O_FILES_dprintf)
+	@echo "dprintf objects compiled"
 
 clean:
-	@rm -f $(O_FILES_PRINTF)
-	@echo "Cleared printf object files"
+	@rm -f $(O_FILES_dprintf)
+	@echo "Cleared dprintf object files"
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "Printf all clean!"
+	@echo "dprintf all clean!"
 
 re: fclean all

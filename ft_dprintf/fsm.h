@@ -6,31 +6,31 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/06 09:43:20 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/03/06 14:54:41 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/22 10:10:57 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FSM_H
 # define FSM_H
-# include "ft_printf.h"
+# include "ft_dprintf.h"
 
 /*
 **	STATES
 */
 
-void			entry_state(char token, t_printf_arg **arg, va_list ap);
-void			dash_state(char token, t_printf_arg **arg, va_list ap);
-void			zero_state(char token, t_printf_arg **arg, va_list ap);
-void			num_state(char token, t_printf_arg **arg, va_list ap);
-void			num_repeat_state(char token, t_printf_arg **arg, va_list ap);
-void			prec_state(char token, t_printf_arg **arg, va_list ap);
-void			prec_num_state(char token, t_printf_arg **arg, va_list ap);
-void			prec_num_repeat_state(char token, t_printf_arg **arg,
+void			entry_state(char token, t_dprintf_arg **arg, va_list ap);
+void			dash_state(char token, t_dprintf_arg **arg, va_list ap);
+void			zero_state(char token, t_dprintf_arg **arg, va_list ap);
+void			num_state(char token, t_dprintf_arg **arg, va_list ap);
+void			num_repeat_state(char token, t_dprintf_arg **arg, va_list ap);
+void			prec_state(char token, t_dprintf_arg **arg, va_list ap);
+void			prec_num_state(char token, t_dprintf_arg **arg, va_list ap);
+void			prec_num_repeat_state(char token, t_dprintf_arg **arg,
 										va_list ap);
-void			ast_state(char token, t_printf_arg **arg, va_list ap);
-void			prec_ast_state(char token, t_printf_arg **arg, va_list ap);
-void			error_state(char token, t_printf_arg **arg, va_list ap);
-void			exit_state(char token, t_printf_arg **arg, va_list ap);
+void			ast_state(char token, t_dprintf_arg **arg, va_list ap);
+void			prec_ast_state(char token, t_dprintf_arg **arg, va_list ap);
+void			error_state(char token, t_dprintf_arg **arg, va_list ap);
+void			exit_state(char token, t_dprintf_arg **arg, va_list ap);
 
 /*
 **	TRANSITION TABLE
@@ -38,9 +38,9 @@ void			exit_state(char token, t_printf_arg **arg, va_list ap);
 
 typedef struct	s_transition_obj
 {
-	void				(*orig_state)(char, t_printf_arg **, va_list);
+	void				(*orig_state)(char, t_dprintf_arg **, va_list);
 	t_transition_code	transition;
-	void				(*next_state)(char, t_printf_arg **, va_list);
+	void				(*next_state)(char, t_dprintf_arg **, va_list);
 }				t_transition_obj;
 
 t_transition_obj const g_transition_table[] =

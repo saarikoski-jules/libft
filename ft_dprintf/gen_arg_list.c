@@ -6,18 +6,18 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/19 14:05:00 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/10/22 10:02:56 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/22 10:10:57 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_dprintf.h"
 
-t_printf_arg	*gen_elem(t_printf_arg **head)
+t_dprintf_arg	*gen_elem(t_dprintf_arg **head)
 {
-	t_printf_arg	*cur;
-	t_printf_arg	*new;
+	t_dprintf_arg	*cur;
+	t_dprintf_arg	*new;
 
-	new = malloc(sizeof(t_printf_arg));
+	new = malloc(sizeof(t_dprintf_arg));
 	if (new == NULL)
 		return (NULL);
 	new->next = NULL;
@@ -36,7 +36,7 @@ t_printf_arg	*gen_elem(t_printf_arg **head)
 	return (new);
 }
 
-int				store_conv(char chr, t_printf_arg **cur, va_list ap)
+int				store_conv(char chr, t_dprintf_arg **cur, va_list ap)
 {
 	if (ft_strchr("uxX", chr))
 		store_uint(chr, cur, ap);
@@ -65,10 +65,10 @@ char			*get_format_str(const char *str, int len)
 	return (format_str);
 }
 
-int				parse_arg(t_printf_arg **head, char **format_str, va_list ap,
+int				parse_arg(t_dprintf_arg **head, char **format_str, va_list ap,
 							char conv)
 {
-	t_printf_arg *cur;
+	t_dprintf_arg *cur;
 
 	cur = gen_elem(head);
 	if (!cur)
@@ -83,7 +83,7 @@ int				parse_arg(t_printf_arg **head, char **format_str, va_list ap,
 	return (1);
 }
 
-int				gen_arg_list(t_printf_arg **head, const char *str, va_list ap)
+int				gen_arg_list(t_dprintf_arg **head, const char *str, va_list ap)
 {
 	char	*format_str;
 	int		i;

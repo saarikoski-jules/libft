@@ -6,14 +6,14 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/11 12:05:50 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/03/14 12:00:40 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/22 10:55:04 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_dprintf.h"
 #include <unistd.h>
 
-int	print_conv(t_printf_arg **cur)
+int	print_conv(int fd, t_dprintf_arg **cur)
 {
 	char	*arg_str;
 	int		ret;
@@ -21,29 +21,29 @@ int	print_conv(t_printf_arg **cur)
 	arg_str = execute_arg(cur);
 	if (arg_str == NULL)
 		return (-1);
-	ret = write(1, arg_str, (*cur)->field_width);
+	ret = write(fd, arg_str, (*cur)->field_width);
 	free(arg_str);
 	return (ret);
 }
 
-int	print_section(const char *str, t_printf_arg **cur_arg, int *i, int *prev)
+int	print_section(t_const_args params, t_dprintf_arg **cur_arg, int *i, int *prev)
 {
 	int ret;
 	int cur_ret;
 
 	ret = 0;
-	if (str[*i] == '%')
+	if (params.str[*i] == '%')
 	{
-		cur_ret = write(1, str + *prev, *i - *prev);
+		cur_ret = write(params.fd, params.str + *prev, *i - *prev);
 		if (cur_ret == -1)
 			return (-1);
 		ret += cur_ret;
-		if (str[(*i) + 1] != '\0')
-			*i += ft_strmatch(str + *i + 1, "0123456789-*.") + 2;
+		if (params.str[(*i) + 1] != '\0')
+			*i += ft_strmatch(params.str + *i + 1, "0123456789-*.") + 2;
 		*prev = *i;
-		if (ft_strchr("cspdiuxXf%", str[*i - 1]) != NULL)
+		if (ft_strchr("cspdiuxXf%", params.str[*i - 1]) != NULL)
 		{
-			cur_ret = print_conv(cur_arg);
+			cur_ret = print_conv(params.fd, cur_arg);
 			if (cur_ret == -1)
 				return (-1);
 			ret += cur_ret;
@@ -55,9 +55,9 @@ int	print_section(const char *str, t_printf_arg **cur_arg, int *i, int *prev)
 	return (ret);
 }
 
-int	manage_print(const char *str, t_printf_arg **head)
+int	manage_print(t_const_args params, t_dprintf_arg **head)
 {
-	t_printf_arg	*cur_arg;
+	t_dprintf_arg	*cur_arg;
 	int				i;
 	int				prev;
 	int				ret;
@@ -67,14 +67,14 @@ int	manage_print(const char *str, t_printf_arg **head)
 	i = 0;
 	prev = 0;
 	ret = 0;
-	while (str[i] != '\0')
+	while (params.str[i] != '\0')
 	{
-		cur_ret = print_section(str, &cur_arg, &i, &prev);
+		cur_ret = print_section(params, &cur_arg, &i, &prev);
 		if (cur_ret == -1)
 			return (-1);
 		ret += cur_ret;
 	}
-	cur_ret = write(1, str + prev, i - prev);
+	cur_ret = write(params.fd, params.str + prev, i - prev);
 	if (cur_ret == -1)
 		return (-1);
 	ret += cur_ret;
