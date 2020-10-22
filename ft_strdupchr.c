@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/31 04:48:30 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/02/01 15:13:33 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/22 09:56:06 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ char		*ft_strdupchr(const char *str, const char *charset)
 		return (res);
 	}
 	res = (char *)malloc((i + 1) * sizeof(char));
+	if (res == NULL)
+		return (NULL);
 	ft_strlcpy(res, str, i + 1);
 	return (res);
 }

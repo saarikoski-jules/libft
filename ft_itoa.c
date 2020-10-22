@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/31 12:38:41 by jsaariko      #+#    #+#                 */
-/*   Updated: 2019/11/16 11:28:38 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/22 09:58:43 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,16 @@ static char	*exceptions(int n)
 	if (n == 0)
 	{
 		arr = (char *)malloc(2 * sizeof(char));
+		if (arr == NULL)
+			return (NULL);
 		arr[1] = '\0';
 		arr[0] = '0';
 	}
 	if (n == -2147483648)
 	{
 		arr = (char *)malloc(12 * sizeof(char));
+		if (arr == NULL)
+			return (NULL);
 		ft_strlcpy(arr, "-2147483648", 12 * sizeof(char));
 	}
 	return (arr);
