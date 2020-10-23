@@ -6,7 +6,7 @@
 #    By: jsaariko <jsaariko@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/09 16:26:10 by jsaariko      #+#    #+#                  #
-#    Updated: 2020/10/22 10:41:04 by jsaariko      ########   odam.nl          #
+#    Updated: 2020/10/23 11:15:24 by jsaariko      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,7 @@ LFT_SRCS =	ft_putchar_fd.c \
 		get_next_line_utils.c \
 		ft_pow.c \
 		ft_atof.c \
+		vector_utils.c \
 
 DPRINTD_SRCS =	$(DPRINTF_DIR)ft_dprintf.c \
 				$(DPRINTF_DIR)gen_arg_str.c \

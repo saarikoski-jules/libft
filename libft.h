@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/02 15:48:44 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/10/22 10:13:51 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/23 11:23:15 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@ typedef struct		s_list
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct		s_vector
+{
+	void			**data;
+	size_t			item_size;
+	size_t			amt;
+}					t_vector;
 
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
@@ -77,5 +84,8 @@ int					ft_dprintf(int fd, const char *str, ...);
 int					get_next_line(int fd, char **line);
 double				ft_pow(double base, int exp);
 double				ft_atof(const char *str);
+int					vector_init(t_vector *v);
+int					vector_push(t_vector *v, void *item);
+void				*vector_get(t_vector *v, size_t index);
 
 #endif
