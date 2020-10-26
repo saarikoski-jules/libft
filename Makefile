@@ -6,7 +6,7 @@
 #    By: jsaariko <jsaariko@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/09 16:26:10 by jsaariko      #+#    #+#                  #
-#    Updated: 2020/10/23 11:15:24 by jsaariko      ########   odam.nl          #
+#    Updated: 2020/10/26 15:30:55 by jsaariko      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,6 @@ LFT_SRCS =	ft_putchar_fd.c \
 		ft_strdup.c \
 		ft_numlen.c \
 		ft_realloc.c \
-		ft_recalloc.c \
 		ft_strchrset.c \
 		ft_strdupchr.c \
 		ft_strjoinchar.c \

@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/02 15:48:44 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/10/26 12:07:16 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/26 15:28:26 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,7 @@ char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char				*ft_itoa(int n);
 char				**ft_split(char const *s, char c);
-void				*ft_realloc(void *ptr, size_t size);
-void				*ft_recalloc(void *ptr, size_t size);
+void				*ft_realloc(void *ptr, size_t old_size, size_t new_size);
 int					ft_strchrset(const char *str, const char *charset);
 char				*ft_strdupchr(const char *str, const char *charset);
 char				*ft_strjoinchar(const char *str, char c);

@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/22 16:22:25 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/10/26 13:35:58 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/26 15:39:01 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	vector_resize(t_vector *v, size_t new_amt)
 {
 	void **data;
 
-	data = ft_realloc(v->data, new_amt * v->item_size);
+	data = ft_realloc(v->data,v->amt, new_amt * v->item_size);
 	if (!data)
 		return (0);
 	v->data = data;
@@ -79,22 +79,16 @@ int				vector_search(t_vector *v, int (*cmp)(), void *item)
 int				vector_delete(t_vector *v, size_t index)
 {
 	size_t i;
-	ft_dprintf(STDIN_FILENO, "\namt: %d\n index: %d\n", v->amt, index);
 	if (index <= 0 || index > v->amt)
 		return (0);
-	// v->data[index];
-	// free(v->data[index]);
 	v->data[index] = NULL;
 	i = index;
-	while (i < v->amt)
+	while (i < v->amt - 1)
 	{
 		v->data[i] = v->data[i + 1];
 		i++;
 	}
-	// if (!vector_resize(v, v->amt - 1))
-		// return (0);
-	// vector_resize(v, v->amt - 1);
-
-	ft_dprintf(STDIN_FILENO, "\n\n\n VECTOR NEW SIZE: %d\n", v->amt);
+	if (!vector_resize(v, v->amt - 1))
+		return (0);
 	return (1);
 }

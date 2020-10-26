@@ -6,22 +6,24 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/21 13:27:22 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/10/22 16:51:15 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/26 15:21:22 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_realloc(void *ptr, size_t size)
+void	*ft_realloc(void *ptr, size_t old_size, size_t new_size)
 {
 	void *new;
 
-	new = malloc(size);
+	new = malloc(new_size);
 	if (new == NULL)
 		return (NULL);
 	if (ptr == NULL)
 		return (new);
-	ft_memmove(new, ptr, size - 1);
+	if (old_size <= new_size)
+		ft_memmove(new, ptr, old_size);
+	ft_memmove(new, ptr, new_size);
 	free(ptr);
 	return (new);
 }
