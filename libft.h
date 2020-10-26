@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/02 15:48:44 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/10/23 11:23:15 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/26 12:07:16 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,9 @@ double				ft_atof(const char *str);
 int					vector_init(t_vector *v);
 int					vector_push(t_vector *v, void *item);
 void				*vector_get(t_vector *v, size_t index);
+int					vector_search(t_vector *v, int (*cmp)(), void *item);
+int					vector_delete(t_vector *v, size_t index);
+
+
 
 #endif
