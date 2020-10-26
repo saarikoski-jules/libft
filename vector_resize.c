@@ -1,42 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   vector_utils.c                                     :+:    :+:            */
+/*   vector_resize.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/22 16:22:25 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/10/26 15:39:01 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/26 17:43:58 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** return 0 on fail and 1 on success
+** Resizes data array and sets amt accordingly.
+** Returns 0 if bad params or allocation fails. New_amt can be 0
 */
-
-int			vector_init(t_vector *v)
-{
-	if (v == NULL)
-		return (0);
-	v->item_size = 0;
-	v->amt = 0;
-	v->data = NULL;
-	return (1);
-}
 
 static int	vector_resize(t_vector *v, size_t new_amt)
 {
 	void **data;
 
-	data = ft_realloc(v->data,v->amt, new_amt * v->item_size);
+	if (v == NULL)
+		return (0);
+	data = ft_realloc(v->data, v->amt, new_amt * v->item_size);
 	if (!data)
 		return (0);
 	v->data = data;
 	v->amt = new_amt;
 	return (1);
 }
+
+/*
+** Adds item to the back of the data array if params are valid.
+** Resizes array to fit new item. Returns 0 if allocation fails
+*/
 
 int			vector_push(t_vector *v, void *item)
 {
@@ -47,39 +45,23 @@ int			vector_push(t_vector *v, void *item)
 	if (v == NULL || sizeof(item) != v->item_size)
 		return (0);
 	last_slot = v->amt;
-	vector_resize(v, v->amt + 1);
+	if (vector_resize(v, v->amt + 1) == 0)
+		return (0);
 	v->data[last_slot] = item;
 	return (1);
 }
 
-void		*vector_get(t_vector *v, size_t index)
-{
-	if (index >= 0 && index < v->amt)
-		return (v->data[index]);
-	return (NULL);
-}
-
 /*
-** Returns index of first matching vector, or -1 if not found
+** Removes and sets to NULL the specified index, if within range.
+** Else returns 0.
+** Will resize memory block. Will not free element if allocated.
 */
 
-int				vector_search(t_vector *v, int (*cmp)(), void *item)
-{
-	size_t i = 0;
-
-	while (i < v->amt)
-	{
-		if (cmp(v->data[i], item) == 0)
-			return (i);
-		i++;
-	}
-	return (-1);
-}
-
-int				vector_delete(t_vector *v, size_t index)
+int			vector_delete(t_vector *v, size_t index)
 {
 	size_t i;
-	if (index <= 0 || index > v->amt)
+
+	if (v == NULL || index < 0 || index >= v->amt)
 		return (0);
 	v->data[index] = NULL;
 	i = index;
@@ -88,7 +70,7 @@ int				vector_delete(t_vector *v, size_t index)
 		v->data[i] = v->data[i + 1];
 		i++;
 	}
-	if (!vector_resize(v, v->amt - 1))
+	if (vector_resize(v, v->amt - 1) == 0)
 		return (0);
 	return (1);
 }
