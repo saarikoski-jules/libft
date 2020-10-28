@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/21 13:27:22 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/10/26 15:21:22 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/28 13:15:54 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	*ft_realloc(void *ptr, size_t old_size, size_t new_size)
 		return (new);
 	if (old_size <= new_size)
 		ft_memmove(new, ptr, old_size);
-	ft_memmove(new, ptr, new_size);
+	else
+		ft_memmove(new, ptr, new_size);
 	free(ptr);
 	return (new);
 }
