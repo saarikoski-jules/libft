@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/22 16:22:25 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/10/28 16:32:40 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/28 18:28:41 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	vector_resize(t_vector *v, size_t new_amt)
 
 	if (v == NULL)
 		return (0);
-	data = ft_realloc(v->data, v->amt, new_amt * v->item_size);
+	data = ft_realloc(v->data, v->amt * v->item_size, new_amt * v->item_size);
 	if (!data)
 		return (0);
 	v->data = data;
