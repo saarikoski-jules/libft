@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/22 16:22:25 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/10/26 17:43:58 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/28 16:32:40 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int			vector_delete(t_vector *v, size_t index)
 {
 	size_t i;
 
-	if (v == NULL || index < 0 || index >= v->amt)
+	if (v == NULL || index >= v->amt)
 		return (0);
 	v->data[index] = NULL;
 	i = index;
