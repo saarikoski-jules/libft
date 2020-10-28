@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 17:40:31 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/10/28 16:31:13 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/28 18:41:02 by jsaariko      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 /*
 ** Returns null if can't find item. Else returns pointer to index
 */
-
-//TODO: Vector_resize and vector_get compilation issues for linux
 
 void		*vector_get(t_vector *v, size_t index)
 {
