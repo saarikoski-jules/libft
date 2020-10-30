@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/29 20:54:03 by limartin      #+#    #+#                 */
-/*   Updated: 2020/10/30 13:09:26 by lindsay       ########   odam.nl         */
+/*   Updated: 2020/10/30 13:22:16 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		vector_print(int fd, t_vector *v, int (*print)())
 	while (i < v->amt && ret > -1)
 	{
 		if (ret > -1)
-			ret = print(fd, v->data[i]);
+			ret = print(fd, vector_get(v, i));
 		ret = (ret > -1) ? write(fd, "\n", 0) : ret;
 		i++;
 	}
