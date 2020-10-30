@@ -6,7 +6,7 @@
 /*   By: jsaariko <jsaariko@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/02 15:48:44 by jsaariko      #+#    #+#                 */
-/*   Updated: 2020/10/26 17:19:50 by jsaariko      ########   odam.nl         */
+/*   Updated: 2020/10/30 13:11:42 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,7 @@ int					vector_push(t_vector *v, void *item);
 void				*vector_get(t_vector *v, size_t index);
 int					vector_search(t_vector *v, int (*cmp)(), void *item);
 int					vector_delete(t_vector *v, size_t index);
+int					vector_print(int fd, t_vector *v, int (*print)());
+int					vector_debug(int fd, t_vector *v, int (*print)());
 
 #endif
